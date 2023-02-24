@@ -1,0 +1,121 @@
+@import "../helpers/layout";
+@import "../base/container";
+@import "../base/variables";
+
+.author {
+    @include helpers-layout-framePadding;
+
+    /* options
+    ------------------------------------------------------------------------ */
+    &.option-border_radius {
+        .container {
+            .user-info {
+                .image {
+                    img {
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.option-display_user_image {
+        .container {
+            .user-info {
+                .content {
+                    //flex-grow: 1;
+                }
+            }
+        }
+    }
+
+    //NOT container version
+    &.layout-background-color {
+        //padding: $padding_1_5 0px;
+        padding: 0;
+
+        h3,
+        a {
+            color: inherit;
+        }
+    }
+
+    //container version
+    &.option-background_container {
+        .container {
+            padding: $padding_1;
+        }
+    }
+
+    .layout-background {
+        padding: 0;
+    }
+
+    .layout-background-color {
+        padding: 0;
+
+        .user-info {
+            //padding: $padding_1_5 !important;
+            padding: 0;
+
+            h3,
+            a {
+                color: inherit;
+            }
+        }
+    }
+    .container.layout-nobackground {
+        padding: 0;
+    }
+
+    &.option-background_border_radius {
+        border-radius: $border_radius;
+
+        .container {
+            border-radius: $border_radius;
+        }
+    }
+
+    .container {
+        .user-info {
+            display: flex;
+            align-items: center;
+
+            .image {
+                flex: 0 0 $padding_4;
+                padding-right: $padding_1;
+
+                display: flex;
+                align-items: center;
+                //max-width: $padding_2;
+
+                img {
+                    max-width: $padding_3;
+                    height: auto;
+                }
+            }
+
+            .content {
+                //flex: 0 0 100%;
+
+                h3,
+                p:not(:last-child) {
+                    margin: 0 0 $padding_0_5 0;
+                }
+
+                .social-media {
+                    a {
+                        padding-right: 5px;
+                    }
+                }
+
+                .social-media {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-top: $padding_0_5;
+                }
+            }
+        }
+    }
+}

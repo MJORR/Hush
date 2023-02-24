@@ -1,0 +1,98 @@
+@import "../base/mixins";
+
+.arrow {
+    //display: inline-block;
+    position: relative !important;
+
+    width: unset !important;
+    height: unset !important;
+
+    margin: 0;
+
+    color: inherit !important;
+    bottom: unset !important;
+
+    font-weight: 900;
+    text-decoration: none !important;
+
+    align-items: center;
+
+    display: flex;
+    align-items: center;
+
+    &:after {
+        display: none;
+    }
+
+    // outer
+    div.outer {
+        position: relative;
+        width: 100%;
+
+        &:before,
+        &:after {
+            font-family: $fontawesome;
+            content: "\f178";
+            position: absolute;
+            top: 50%;
+            width: $normal_size;
+
+            @include transition(
+                (visibility 0.3s ease, opacity 0.3s ease, transform 0.3s ease)
+            );
+
+            @include transform(translateY(-50%));
+        }
+
+        &:before {
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            @include transform(
+                translate(calc(-1 * (#{$normal_size} + #{$padding_0_10})), -50%)
+            );
+        }
+
+        &:after {
+            box-shadow: unset !important;
+            left: unset;
+            right: 0;
+            height: unset;
+            background-color: unset;
+        }
+    }
+
+    // inner
+    div.inner {
+        @include transition((margin 0.3s ease));
+        width: calc(100% - (#{$normal_size} + #{$padding_0_25}));
+        margin-right: calc(#{$normal_size} + #{$padding_0_25}) !important;
+    }
+
+    &:hover {
+        div.outer {
+            &::before {
+                opacity: 1;
+                visibility: visible;
+                @include transform(translate(0, -50%));
+            }
+            &::after {
+                opacity: 0;
+                visibility: hidden;
+                @include transform(
+                    translate(calc(#{$normal_size} + #{$padding_0_10}), -50%)
+                );
+            }
+        }
+
+        div.inner {
+            margin-left: calc(#{$normal_size} + #{$padding_0_25}) !important;
+        }
+    }
+
+    /* Options
+    ------------------------------------------- */
+    &.option-full {
+        width: 100%;
+    }
+}

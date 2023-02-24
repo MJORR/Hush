@@ -1,0 +1,126 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../base/variables";
+@import "../base/mixins";
+
+.call-outs {
+    // call-outs-content
+    &-content {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        align-content: center;
+        text-decoration: none !important;
+
+        padding: $padding_1;
+
+        @media only screen and (max-width: $responsive-sm) {
+            flex-direction: column;
+        }
+
+        // call-outs-content-icon
+        &-icon {
+            padding-right: $padding_1;
+            font-size: $h1_size;
+
+            @media only screen and (max-width: $responsive-sm) {
+                padding-right: 0;
+                padding-bottom: $padding_1;
+            }
+        }
+
+        // call-outs-content-text
+        &-text {
+            h3 {
+                color: inherit;
+                margin: 0 0 $padding_0_5 0;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+
+                /*h3 {
+                    
+                }
+
+                &:hover {
+                    h3 {
+                        &:after {
+                            padding-right: $padding_1;
+                        }
+                    }
+                }*/
+            }
+        }
+    }
+
+    /* Options
+    --------------------------------------------------------------------------- */
+    /*&.option-container {
+        .container {
+            @include helpers-layout-themecolorBackground;
+            @include helpers-text-themecolorText;
+
+            .call-outs-content {
+                padding: $padding_2 !important;
+            }
+        }
+    }*/
+
+    // link
+    &.option-link {
+        .call-outs-content {
+            padding-right: $padding_2_5;
+
+            &:after {
+                position: absolute;
+                right: $padding_1;
+                top: 50%;
+                transform: translateY(-50%);
+
+                font-family: $fontawesome;
+                content: "\f054";
+                padding-left: $padding_0_5;
+                font-weight: normal;
+                margin-left: auto;
+                font-size: $h3_size;
+
+                @include transition(right 0.5s ease);
+            }
+
+            &:hover {
+                &:after {
+                    right: $padding_1_5;
+                }
+            }
+        }
+    }
+
+    // rounded
+    &.option-rounded {
+        .call-outs-content {
+            border-radius: $border_radius;
+        }
+    }
+
+    // background_type
+    &.option-background_type {
+        // background
+        &-background {
+            .call-outs-content {
+                background-color: $background_color;
+                @include helpers-text-themecolorBackground;
+            }
+        }
+
+        // fill
+        &-fill {
+            .call-outs-content {
+                @include helpers-layout-themecolorBackground;
+                @include helpers-text-themecolorText;
+            }
+        }
+    }
+}

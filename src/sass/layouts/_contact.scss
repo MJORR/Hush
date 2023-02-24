@@ -1,0 +1,245 @@
+@import "../helpers/padding";
+@import "../helpers/text";
+@import "../base/variables";
+@import "../base/container";
+@import "../base/typography_variables";
+
+.contact {
+    padding: 0 !important;
+
+    .container,
+    .container_full,
+    .container_wide,
+    .container_narrow {
+        padding: 0 !important;
+    }
+
+    /* Options
+    ------------------------------------------------------------- */
+    &.layout-background-color {
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+        padding: 0 !important;
+
+        .form__inner {
+            padding: $padding_3;
+
+            @media only screen and (max-width: $responsive-md) {
+                padding: 0;
+            }
+        }
+
+        .map.image {
+            padding: $padding_2;
+
+            @media only screen and (max-width: $responsive-md) {
+                padding: 0;
+            }
+        }
+    }
+
+    &.option-map-left {
+        .contact-container .map {
+            order: -1;
+        }
+    }
+
+    &-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0 !important;
+        margin: $padding_3 0;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 50%;
+
+            // form__inner
+            &__inner {
+                padding: 0 $padding_3;
+
+                @media only screen and (max-width: $responsive-md) {
+                    padding: 0;
+                }
+            }
+
+            @media only screen and (max-width: $responsive-md) {
+                flex-basis: calc(100% - #{$uncalc_padding_0_5});
+                padding: $padding_1_5;
+            }
+
+            .global-contact {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding-top: $padding_1_5;
+                border-top: $border_size solid $border_color;
+                margin-top: $padding_1;
+
+                h3 {
+                    flex: 0 0 100%;
+                }
+
+                p {
+                    flex: 0 0 100%; 
+                }
+
+                &.opening-times {
+                    h3 {
+                        flex: none;
+                    }
+
+                    .address {
+                        flex-direction: row;
+                        display: flex;
+
+                        i {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+
+                & > div {
+                    display: flex;
+                    flex: 0 0 50%;
+                    flex-direction: column;
+
+                    @media only screen and (max-width: $responsive-md) {
+                        flex: 0 0 100%;
+                    }
+
+                    &.contact {
+                        flex-direction: column;
+
+                        a {
+                            color: inherit;
+                        }
+
+                        p {
+                            margin-bottom: $padding_0_5;
+                            flex: none;
+                        }
+                    }
+
+                    &.opening-times {
+                        padding-left: $padding_1;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            padding-left: 0;
+                        }
+
+                        p {
+                            flex: auto;
+                        }
+                    }
+
+                    &.address {
+                        flex-direction: row;
+
+                        i {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .map {
+            display: flex;
+            flex: 0 0 50%;
+
+            @media only screen and (max-width: $responsive-md) {
+                flex: 0 0 100%;
+            }
+
+            &.image {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 0 $padding_2;
+                align-items: flex-start;
+
+                .global-contact {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-bottom: $padding_1;
+
+                    h3 {
+                        flex: 0 0 100%;
+                    }
+
+                    p {
+                        flex: 0 0 100%; 
+                    }
+
+                    &.opening-times {
+                        h3 {
+                            flex: none;
+                        }
+
+                        .address {
+                            flex-direction: row;
+                            display: flex;
+
+                            i {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+
+                    & > div {
+                        display: flex;
+                        flex: 0 0 50%;
+                        flex-direction: column;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            flex: 0 0 100%;
+                        }
+
+                        &.contact {
+                            flex-direction: column;
+
+                            a {
+                                color: inherit;
+                            }
+
+                            p {
+                                margin-bottom: $padding_0_5;
+                                flex: none;
+                            }
+                        }
+
+                        &.opening-times {
+                            padding-left: $padding_1;
+
+                            @media only screen and (max-width: $responsive-md) {
+                                padding-left: 0;
+                            }
+                        }
+
+                        &.address {
+                            flex-direction: row;
+
+                            i {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            img {
+                height: auto;
+                width: 100%;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

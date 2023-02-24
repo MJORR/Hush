@@ -1,0 +1,241 @@
+@import "../helpers/layout";
+@import "../base/typography_variables";
+@import "../base/variables";
+@import "../base/container";
+@import "../base/mixins";
+
+.textlink {
+    @include helpers-layout-framePadding;
+
+    /* Items per line
+    ------------------------------------------------------------- */
+    &.option-items_per_line {
+        &-100 {
+            .textlink__links__link {
+                flex: 0 0 100%;
+            }
+        }
+
+        &-50 {
+            .textlink__links__link {
+                flex: 0 0 calc(50% - #{$padding_2});
+
+                @media only screen and (max-width: $responsive-md) {
+                    flex: 0 0 calc(100% - #{$padding_2});
+                }
+            }
+        }
+
+        &-33 {
+            .textlink__links__link {
+                flex: 0 1 calc(33.33% - #{$padding_2});
+
+                @media only screen and (max-width: $responsive-xl) {
+                    flex: 0 0 calc(50% - #{$padding_2});
+                }
+
+                @media only screen and (max-width: $responsive-md) {
+                    flex: 0 0 calc(100% - #{$padding_2});
+                }
+            }
+        }
+
+        &-25 {
+            .textlink__links__link {
+                flex: 0 0 calc(25% - #{$padding_2});
+
+                @media only screen and (max-width: $responsive-xl) {
+                    flex: 0 0 calc(33.33% - #{$padding_2});
+                }
+
+                @media only screen and (max-width: $responsive-lg) {
+                    flex: 0 0 calc(50% - #{$padding_2});
+                }
+
+                @media only screen and (max-width: $responsive-md) {
+                    flex: 0 0 calc(100% - #{$padding_2});
+                }
+            }
+        }
+    }
+
+    /* Display odd item
+    ------------------------------------------------------------- */
+    &.option-display_odd_item {
+        &-center {
+            .textlink__links {
+                justify-content: center;
+            }
+        }
+
+        &-left {
+            .textlink__links {
+                justify-content: flex-start;
+            }
+        }
+
+        &-right {
+            .textlink__links {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    /* Link Type
+    ------------------------------------------------------------- */
+    &.option-linktype {
+        &-arrow {
+            .textlink__links__linktext {
+                @extend .p_large;
+
+                .arrow {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Link Line
+    ------------------------------------------------------------- */
+    &.option-link_line {
+        .textlink__links__linktext {
+            border-top: $border_size solid $border_color;
+            padding-top: $padding_0_5;
+        }
+    }
+
+    /* Align
+    ------------------------------------------------------------- */
+    &.option-align {
+        &-left {
+            text-align: left;
+        }
+
+        &-center {
+            text-align: center;
+        }
+
+        &-right {
+            text-align: right;
+        }
+    }
+
+    /* Links
+    =========================================================================================== */
+    &__links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        margin: calc(-1 * #{$padding_1});
+        padding: $padding_1 0;
+
+        &__all {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+
+            @media only screen and (max-width: $responsive-md) {
+                flex-direction: column;
+            }
+        }
+
+        // textlink__links__link
+        &__link {
+            a {
+                text-decoration: none;
+                color: inherit !important;
+
+                &:hover {
+                    .textlink__links__linktext {
+                        color: $secondary_color;
+                    }
+                }
+            }
+
+            margin: $padding_1;
+
+            // textlink__links__icon
+            .textlink__links__icon {
+                color: $secondary_color;
+
+                .icon {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+
+                    width: 8vw;
+                    .fas,
+                    .fa {
+                        @include transition(color 0.5s ease-out);
+
+                        font-size: calc(7vw - #{$padding_1});
+                        color: $primary_color;
+                    }
+
+                    img {
+                        max-width: calc(7vw - #{$padding_1});
+                        height: auto;
+                    }
+
+                    @media only screen and (max-width: $responsive-lg) {
+                        width: 10vw;
+
+                        .fas,
+                        .fa {
+                            font-size: calc(9vw - #{$padding_1});
+                        }
+
+                        img {
+                            max-width: calc(9vw - #{$padding_1});
+                        }
+                    }
+
+                    @media only screen and (max-width: $responsive-md) {
+                        .fas,
+                        .fa,
+                        img {
+                            margin-bottom: $padding_0_5;
+                        }
+
+                        width: 15vw;
+
+                        .fas,
+                        .fa {
+                            font-size: calc(14vw - #{$padding_1});
+                        }
+
+                        img {
+                            max-width: calc(14vw - #{$padding_1});
+                        }
+                    }
+
+                    @media only screen and (max-width: $responsive-sm) {
+                        width: 20vw;
+
+                        .fas,
+                        .fa {
+                            font-size: calc(19vw - #{$padding_1});
+                        }
+
+                        img {
+                            max-width: calc(19vw - #{$padding_1});
+                        }
+                    }
+                }
+            }
+        }
+
+        // textlink__links__content
+        &__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        // textlink__links__linktext
+        &__linktext {
+            margin-top: auto;
+        }
+    }
+}

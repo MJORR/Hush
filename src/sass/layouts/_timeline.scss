@@ -1,0 +1,301 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../base/variables";
+@import "../base/container";
+@import "../base/mixins";
+
+.timeline {
+
+    &.layout-white-timeline {
+
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+
+        .history__slider {
+
+            &__thumbs {                
+                &::before {
+                    content: '';
+                    background-color: $primary_color_text;
+                }
+
+                li {
+                    
+                    .image-block {
+                        border: 4px solid $primary_color_text;
+                        background-color: $primary_color_text;
+                    }
+                
+                    &:hover {
+                                               
+                        .image-block {
+                            border-color: $primary_color_text;
+                        }
+                    }
+                    
+                    &.active {
+                    
+                        .image-block {
+                            border-color: $primary_color_text;
+                        }
+                        
+                        a {
+                            color: $primary_color_text;
+                        }
+                    }
+                    
+                    a {
+                        color: $primary_color_text;
+                    }
+                }
+            }
+
+            &__main {
+            
+                .slick-slide {
+                   h3 {
+                        color: $primary_color_text;
+                   }
+                }
+            }
+        }
+    }
+    
+    &.layout-image-radius {
+        .history__slider {
+            &__thumbs {                
+                li {
+                    .image-block {
+                        border-radius: 50%;
+                    }
+                }    
+            }
+        }    
+    }
+
+    &.option-align_text {
+        &-left {
+            .container {
+                text-align: left;
+            }
+        }
+
+        &-center {
+            .container {
+                text-align: center;
+            }
+        }
+
+        &-right {
+            .container {
+                text-align: right;
+            }
+        }
+    }
+
+    &.layout-background-color {
+        padding: $padding_3 0;
+    }
+
+    &.option-bold_years{
+        .history__slider__thumb {
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .history__slider {
+        display: flex;
+        flex-direction: column;
+
+        &__thumbs {
+            width: 100%;
+            display: flex;
+            //justify-content: space-evenly;
+            height: 190px;
+            padding: 0px;
+            margin: 0px;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 39%;
+                width: 100%;
+                display: block;
+                height: 5px;
+                background-color: $primary_color;
+            }
+
+            .slick-list {
+                width: 100% !important;
+                margin: 0;
+            }
+
+            .slick-track {
+                width: 100% !important;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: space-between;
+            }
+
+            .slick-slide {
+                margin: 0;
+            }
+            
+            li {
+                display: inline-block;
+                list-style-type: none;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                top: 65px;
+                @include transition((all 0.3s ease));
+                width: 150px !important;
+                flex-grow: 1;
+                
+                .image-block {
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 15px;
+                    border: 4px solid $primary_color;
+                    position: relative;
+                    background-color: $primary_color;
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 10px;
+                    @include transition((all 0.3s ease));
+                    overflow: hidden;
+                    
+                    figure {
+                        opacity: 0;
+                        @include transition((all 0.3s ease));
+                        height: 100%;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+            
+                &:hover {
+                    top: 40px;
+                    
+                    .image-block {
+                        width: 70px;
+                        height: 70px;
+                        border-color: $primary_color;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            width: 40px;
+                            height: 40px;
+                        }
+
+                        @media only screen and (max-width: $responsive-sm) {
+                            width: 20px;
+                            height: 20px;
+                        }
+                        
+                        figure {
+                            opacity: 1;
+                            width: 70px;
+                            height: 70px;
+                            top: 0;
+                            left: 0;
+                            margin: 0;
+                        }
+                    }
+
+                    @media only screen and (max-width: $responsive-md) {
+                        top: 55px;
+                    }
+
+                    @media only screen and (max-width: $responsive-sm) {
+                        top: 65px;
+                    }
+                }
+                
+                &.active {
+                    top: 0px;
+                    text-align: center !important;
+                    
+                    .image-block {
+                        width: 150px;
+                        height: 150px;
+                        border-color: $primary_color;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                        @media only screen and (max-width: $responsive-sm) {
+                            width: 40px;
+                            height: 40px;
+                        }
+                            
+                        figure {
+                            opacity: 1;
+                            width: 150px;
+                            height: 150px;
+                            top: 0;
+                            left: 0;
+                            margin: 0;
+                        }
+                    }
+                    
+                    a {
+                        color: $primary_color;
+                    }
+
+                    @media only screen and (max-width: $responsive-md) {
+                        top: 25px;
+                    }
+
+                    @media only screen and (max-width: $responsive-sm) {
+                        top: 60px;
+                    }
+                }
+                
+                a {
+                    color: $primary_color;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 18px;
+                    @include transition((all 0.3s ease));
+                }
+            }
+        }
+
+        &__thumb {
+            &:first-of-type {
+                flex-grow: 0;
+                text-align: left;
+
+                .image-block {
+                    margin-left: 0;
+                }
+            }
+
+            &:last-of-type {
+                flex-grow: 0;
+                text-align: right;
+
+                .image-block {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &__main {
+            display: flex !important;
+
+            .slick-slide {
+                display: flex !important;
+                flex-direction: column;
+                padding-top: $padding_1;
+                margin: 0 !important
+            }
+        }
+    }
+}

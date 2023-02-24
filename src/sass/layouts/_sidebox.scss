@@ -1,0 +1,272 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../helpers/padding";
+@import "../helpers/images";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.sidebox {
+    @include helpers-padding-frame;
+
+    &.option-border {
+        padding-top: 0;
+
+        .sidebox__outer {
+            border-top: $border_size solid $border_color;
+            padding-top: $padding_1_5;
+        }
+    }
+
+    &__outer {
+        display: flex;
+
+        @extend .container;
+        .container {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: $responsive-lg) {
+            flex-direction: column;
+            width: 100%;
+
+            .layout-nobackground {
+                @include constraint;
+            }
+        }
+
+        // background reset
+        .layout-background,
+        .layout-background-color {
+            padding: $padding_2 !important;
+
+            @media only screen and (max-width: $responsive-lg) {
+                padding: $padding_2 0 !important;
+
+                .container {
+                    @include constraint;
+                }
+            }
+        }
+
+        .background-image .layout-background {
+            & + .layout-background {
+                padding-top: 0 !important;
+            }
+        }
+
+        // banner reset
+        .banner__slides__outer {
+            padding: $padding_2 !important;
+        }
+
+        // layout first div
+        .layout-nobackground {
+            & > div {
+                width: 100% !important;
+            }
+        }
+    }
+
+    &__content {
+        flex: 0 0 70%;
+        max-width: 70%;
+
+        @media only screen and (max-width: $responsive-lg) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        & > div:first-child {
+            &.layout-nobackground {
+                padding-top: 0;
+            }
+        }
+
+        @media only screen and (max-width: $responsive-lg) {
+            & > div:last-child {
+                &.layout-background,
+                &.layout-imagebackground {
+                    margin-bottom: $padding_3;
+                }
+            }
+        }
+    }
+
+    &__buttons {
+        margin: calc(-1 * #{$padding_0_25});
+        padding-bottom: $padding_0_25;
+
+        .button {
+            margin: $padding_0_25;
+        }
+    }
+
+    &__boxs {
+        padding-left: $padding_2;
+        //padding-top: $padding_2;
+
+        flex: 0 0 30%;
+
+        @media only screen and (max-width: $responsive-lg) {
+            flex: 0 0 100%;
+            padding: 0;
+            //padding-top: $padding_2;
+
+            @include constraint;
+        }
+
+        &__container {
+            // Stick
+            &.option-sticky {
+                position: sticky !important;
+                top: $padding_3 !important;
+            }
+        }
+
+        &__inner {
+            position: relative;
+            z-index: 1;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        &__icon {
+            font-size: $h1_size;
+            margin-bottom: $padding_0_5;
+        }
+
+        &__box {
+            //padding: $padding_1;
+            position: relative;
+            overflow: hidden;
+
+            &:not(:last-child) {
+                margin: 0 0 $padding_1 0;
+            }
+
+            .sidebox__icon {
+                font-size: $h3_size;
+            }
+
+            /* Options 
+            ------------------------------------------------------------ */
+
+            // border
+            &.option-border {
+                &-rounded {
+                    border-radius: $border_radius;
+                }
+
+                &-straight {
+                }
+
+                padding: $padding_1;
+                border: $border_size solid $border_color;
+            }
+
+            // background color
+            &.option-background_type {
+                &-color {
+                    padding: $padding_1;
+
+                    @include helpers-layout-themecolorBackground;
+
+                    &.option-font-theme {
+                        @include helpers-text-headersInherentColor;
+                        @include helpers-text-themecolorText;
+                    }
+                }
+
+                &-image {
+                    @include helpers-images-background;
+                    color: #fff;
+                    @include helpers-text-headersInherentColor;
+                    padding: $padding_1;
+                }
+            }
+
+            // full button
+            &.option-fullbutton {
+                .sidebox__buttons .button {
+                    @media only screen and (min-width: $responsive-lg) {
+                        text-align: center;
+                        width: calc(100% - #{$padding_0_5});
+                    }
+                }
+            }
+
+            // arrow after link
+            &.option-arrow_after_link {
+                .related ul li a:after {
+                    content: "\f054";
+                    font-family: $fontawesome;
+                    padding-left: 5px;
+                }
+
+                .related ul li.current_page_item a {
+                    text-decoration: none;
+                }
+            }
+
+            // dividing line
+            &.option-dividing_line {
+                .related ul li {
+                    border-bottom: 1px solid $border_color;
+                    padding-bottom: $padding_0_5;
+
+                    &:first-of-type {
+                        border-top: 1px solid $border_color;
+                        padding-top: $padding_0_5;
+                    }
+                }
+            }
+
+            // background color
+            &.option-bgcolor-color {
+                padding: $padding_1 !important;
+                @include helpers-text-themecolorText;
+                @include helpers-layout-themecolorBackground;
+
+                .related {
+                    h3,
+                    a {
+                        color: inherit;
+                    }
+                }
+
+                border: 0;
+            }
+
+            &.option-bgcolor {
+                background-color: $background_color;
+            }
+        }
+    }
+
+    /* Related Page
+    ------------------------------------------------------------- */
+    .related {
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                &.current_page_item {
+                    a {
+                        font-weight: bold;
+                        text-decoration: underline;
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: $padding_0_5;
+                }
+            }
+        }
+    }
+}

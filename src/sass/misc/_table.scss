@@ -1,0 +1,86 @@
+$table_border: $border_size solid $primary_color;
+
+table:not(.daterangepicker):not(.ui-datepicker-calendar):not(.tribe-section-content):not(.downloads-table):not(.custom-style-table) {
+    position: relative;
+    border: $table_border !important;
+    overflow: hidden;
+    border-spacing: 0px !important;
+    border-radius: $table_radius !important;
+
+    background-color: $primary_color;
+
+    // header
+    thead {
+        background-color: $primary_color;
+    }
+
+    th,
+    thead td {
+        background-color: $primary_color;
+        color: $primary_color_text !important;
+        font-weight: bold;
+
+        &:not(:last-child) {
+            border-right: $border_size solid white;
+        }
+    }
+
+    // rows
+    tbody {
+        tr {
+            &:not(:first-child) {
+                td {
+                    border-top: $table_border !important;
+                }
+            }
+            &:not(:last-child) {
+                border-bottom: $table_border;
+            }
+
+            @include transition((background-color 0.3s ease-in-out));
+
+            &:hover {
+                background-color: $background-color;
+            }
+        }
+
+        td {
+            background-color: white !important;
+
+            &:not(:last-child) {
+                border-right: $table_border;
+            }
+        }
+    }
+
+    // td
+    th,
+    td {
+        padding: $padding_0_25 $padding_0_5 !important;
+    }
+
+    // footer
+    tfoot {
+        border-top: $table_border !important;
+
+        td {
+            background-color: $primary_color_75;
+
+            &:not(:last-child) {
+                border-right: $border_size solid white;
+            }
+        }
+    }
+
+    // header size adjust
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: $large_size;
+        margin: 0;
+        //color: $primary_color !important;
+    }
+}

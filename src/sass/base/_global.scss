@@ -1,0 +1,68 @@
+@import "./mixins";
+@import "./variables";
+
+*,
+*:before,
+*:after {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  @include box-sizing(inherit);
+}
+*:focus {
+  outline: none;
+}
+html {
+  background-color: #ffffff; /* for outside the body colour */
+  @include box-sizing(border-box);
+
+  height: 100%;
+}
+body {
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+  &.customize-support {
+    height: calc(100% - 32px);
+
+    .notice.option-location-top:not(.notice.option-title) {
+      margin-top: 32px;
+    }
+  }
+}
+
+@media only screen and (max-width: 782px) {
+  body.customize-support {
+    height: calc(100% - 46px);
+
+    .notice.option-location-top:not(.notice.option-title) {
+      margin-top: 46px;
+    }
+  }
+}
+
+// Wordpress Video Fix
+.wp-video {
+  width: unset !important;
+}
+
+// Wordpress Adminbar Fix
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed;
+  }
+}
+
+.custom-password-message {
+  color: red;
+}
+
+.error {
+  img {
+    width: 100%;
+    margin-top: $padding_1;
+  }
+}

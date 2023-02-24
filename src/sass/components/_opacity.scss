@@ -1,0 +1,505 @@
+@import "../helpers/layout";
+@import "../base/variables";
+
+.opacity {
+    @include helpers-layout-fill;
+    opacity: calc(1% * #{$opacity_high});
+
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, calc(#{$opacity_start} / 100)) calc(1% * #{$opacity_low}),
+        rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+    );
+
+    /* Colours
+    ------------------------------------------------------------- */
+    &.option-dark {
+        opacity: unset;
+    }
+
+    &.option-primary {
+        background: linear-gradient(
+            90deg,
+            $primary_color calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $primary_color_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $primary_color_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $primary_color_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $primary_color_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-secondary {
+        background: linear-gradient(
+            90deg,
+            $secondary_color calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $secondary_color_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $secondary_color_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $secondary_color_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $secondary_color_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-tertiary {
+        background: linear-gradient(
+            90deg,
+            $tertiary_color calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $tertiary_color_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $tertiary_color_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $tertiary_color_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $tertiary_color_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-colour1 {
+        background: linear-gradient(
+            90deg,
+            $color_1 calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_1_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_1_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $color_1_25,
+                    rgba(0, 0, 0, 0) 
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $color_1_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-colour2 {
+        background: linear-gradient(
+            90deg,
+            $color_2 calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_2_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_2_50,
+                    rgba(0, 0, 0, 0) 
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $color_2_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $color_2_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-colour3 {
+        background: linear-gradient(
+            90deg,
+            $color_3 calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_3_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_3_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $color_3_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $color_3_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.option-colour4 {
+        background: linear-gradient(
+            90deg,
+            $color_4 calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.change_opacity {
+            &-none {
+                opacity: 0;
+            }
+
+            &-low-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_4_75,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-low {
+                background: linear-gradient(
+                    90deg,
+                    $color_4_50,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium {
+                background: linear-gradient(
+                    90deg,
+                    $color_4_25,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-medium-high {
+                background: linear-gradient(
+                    90deg,
+                    $color_4_10,
+                    rgba(0, 0, 0, 0)
+                );
+            }
+
+            &-full {
+                opacity: 1;
+            }
+        }
+    }
+
+    // Full Opacity
+    &.option-full {
+        @media only screen and (min-width: $responsive_sm) {
+            opacity: 100%;
+        }
+
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) calc(1% * #{$opacity_low}),
+            rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+        );
+
+        &.option-primary {
+            background: linear-gradient(
+                90deg,
+                $primary_color calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+
+        &.option-secondary {
+            background: linear-gradient(
+                90deg,
+                $secondary_color calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) 70%
+            );
+        }
+
+        &.option-tertiary {
+            background: linear-gradient(
+                90deg,
+                $tertiary_color calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+
+        &.option-colour1 {
+            background: linear-gradient(
+                90deg,
+                $color_1 calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+
+        &.option-colour2 {
+            background: linear-gradient(
+                90deg,
+                $color_2 calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+
+        &.option-colour3 {
+            background: linear-gradient(
+                90deg,
+                $color_3 calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+
+        &.option-colour4 {
+            background: linear-gradient(
+                90deg,
+                $color_4 calc(1% * #{$opacity_low}),
+                rgba(0, 0, 0, 0) calc(1% * #{$opacity_high})
+            );
+        }
+    }
+
+    // Full Width
+    &.option-width {
+        background: rgba(0, 0, 0, calc(0.01 * #{$opacity_low}));
+
+        &.option-primary {
+            background: $primary_color_10 !important;
+        }
+
+        &.option-secondary {
+            background: $secondary_color_10 !important;
+        }
+
+        &.option-tertiary {
+            background: $tertiary_color_10 !important;
+        }
+
+        &.option-colour1 {
+            background: $color_1_10 !important;
+        }
+
+        &.option-colour2 {
+            background: $color_2_10 !important;
+        }
+
+        &.option-colour3 {
+            background: $color_3_10 !important;
+        }
+
+        &.option-colour4 {
+            background: $color_4_10 !important;
+        }
+    }
+
+    // Mobile
+    @media only screen and (max-width: $responsive_sm) {
+        background: rgba(0, 0, 0, calc(0.01 * #{$opacity_low}));
+
+        &.option-primary {
+            background: $primary_color_10 !important;
+        }
+
+        &.option-secondary {
+            background: $secondary_color_10 !important;
+        }
+
+        &.option-tertiary {
+            background: $tertiary_color_10 !important;
+        }
+
+        &.option-colour1 {
+            background: $color_1_10 !important;
+        }
+
+        &.option-colour2 {
+            background: $color_2_10 !important;
+        }
+
+        &.option-colour3 {
+            background: $color_3_10 !important;
+        }
+
+        &.option-colour4 {
+            background: $color_4_10 !important;
+        }
+    }
+}

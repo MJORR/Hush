@@ -1,0 +1,160 @@
+@import "../base/container";
+
+.scrolldown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    height: $padding_4;
+
+    @extend .container;
+
+    /* options
+    ----------------------------------------------------- */
+    &.option-align {
+        &-left {
+            .scrolldown__inner {
+                left: 0;
+            }
+        }
+
+        &-center {
+            .scrolldown__inner {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &-right {
+            .scrolldown__inner {
+                right: 0;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+    }
+
+    /* scrolldown__inner
+    ----------------------------------------------------- */
+    &__inner {
+        position: absolute;
+        bottom: 0;
+    }
+
+    /* scrolldown__title
+    ----------------------------------------------------- */
+    &__title {
+        display: block;
+        color: #fff;
+        font-weight: 600;
+        padding-bottom: calc(#{$padding_2} + #{$padding_0_25});
+
+        &.mobile {
+            padding-bottom: calc(#{$padding_4} + #{$padding_0_25});
+        }
+
+        /*&.mobile {
+            padding-bottom: 175px;
+        }*/
+
+        &:before {
+            position: absolute;
+            content: "";
+            border-left: 2px solid white;
+            width: 2px;
+            height: $padding_1;
+            left: 50%;
+            top: calc(-1 * (#{$padding_1_5} - #{$padding_0_25}));
+
+            transform: translateX(-50%);
+        }
+    }
+
+    /* scrolldown__main
+    ----------------------------------------------------- */
+    &__main {
+        width: 2px;
+        height: $padding_2;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        overflow: hidden;
+        background: linear-gradient(
+            to bottom,
+            white 50%,
+            rgba(255, 255, 255, 0) 50%
+        );
+        background-position: 0 -60px;
+        background-size: 100% 200%;
+        animation: scrolldown 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards
+            infinite;
+
+        &.no-animation {
+            animation: none;
+            background: linear-gradient(
+                to bottom,
+                white 50%,
+                rgba(255, 255, 255, 1) 100%
+            );
+        }
+    }
+
+    .icon-scroll,
+    .icon-scroll:before {
+        position: absolute;
+        left: 50%;
+    }
+    .icon-scroll {
+        width: 30px;
+        height: $padding_2;
+        margin-left: -15px;
+        //top: 50%;
+        //margin-top: -15px;
+        box-shadow: inset 0 0 0 1px #fff;
+        border-radius: 25px;
+
+        &:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            margin-left: -4px;
+            top: 8px;
+            border-radius: 4px;
+            -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: scroll;
+            animation-name: scroll;
+        }
+    }
+}
+
+@keyframes scrolldown {
+    0% {
+        background-position: 0 calc(-1 * #{$padding_2});
+    }
+    75% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 $padding_2;
+    }
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY($padding_1);
+    }
+}

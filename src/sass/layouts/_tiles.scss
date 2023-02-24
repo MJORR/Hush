@@ -1,0 +1,319 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../helpers/images";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.tiles {
+    @include helpers-layout-framePadding;
+
+    // tiles__links
+    &__links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        // tiles__links__link
+        &__link {
+            a:hover {
+                text-decoration: none;
+            }
+        }
+
+        &__container {
+            height: 100%;
+            position: relative;
+
+            &.option-border_radius {
+                border-radius: $border_radius;
+
+                .tiles__content,
+                .tiles__overlay,
+                .background__mobile,
+                .opacity {
+                    border-radius: $border_radius;
+                }
+            }
+
+            &.option-display_gap {
+                margin-right: $padding_0_5;
+            }
+
+            &.option-display_background_image {
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                p {
+                    color: $primary_color_text;
+                }
+
+                .tiles__icon {
+                    .icon {
+                        .fas,
+                        .fa,
+                        .far {
+                            color: $primary_color_text;
+                        }
+                    }
+                }
+            }
+
+            .tiles__content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                padding: $padding_1 !important;
+                height: 100%;
+                text-align: center;
+
+                .tiles__title,
+                .tiles__description {
+                    z-index: 1;
+                }
+
+                .tiles__title {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+
+                    margin: 0;
+                    @include helpers-text-headersRemoveMargin;
+
+                    & + .tiles__description {
+                        margin-top: $padding_0_5;
+                    }
+                }
+
+                @include helpers-images-background;                
+
+                p {
+                    &:last-of-type {
+                        margin-bottom: $padding_0_5;
+                    }
+                }
+
+                @media only screen and (max-width: $responsive-lg) {
+                    p {
+                        display: none;
+                    }
+                }
+
+                @media only screen and (max-width: $responsive-sm) {
+                    padding: $padding_1_5 $padding_0_5 !important;
+                }
+            }
+        }
+    }
+
+    // tiles__icon
+    &__icon {
+        .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            max-width: 8vw;
+            margin-bottom: $padding_0_5;
+
+            .fas,
+            .fa,
+            .far {
+                @include transition(color 0.5s ease-out);
+                font-size: calc(5vw - #{$padding_1});
+            }
+
+            img {
+                max-width: $h1_size;
+                height: auto;
+            }
+
+            @media only screen and (max-width: $responsive-lg) {
+                width: 10vw;
+
+                .fas,
+                .fa,
+                .far {
+                    font-size: calc(9vw - #{$padding_1});
+                }
+
+                img {
+                    max-width: calc(9vw - #{$padding_1});
+                }
+            }
+
+            @media only screen and (max-width: $responsive-md) {
+                width: 15vw;
+
+                .fas,
+                .fa,
+                .far {
+                    font-size: calc(14vw - #{$padding_1});
+                    margin-bottom: $padding_0_5;
+                }
+
+                img {
+                    max-width: calc(14vw - #{$padding_1});
+                    margin-bottom: $padding_0_5;
+                }
+            }
+
+            @media only screen and (max-width: $responsive-sm) {
+                width: 20vw;
+
+                .fas,
+                .fa,
+                .far {
+                    font-size: calc(19vw - #{$padding_1});
+                }
+
+                img {
+                    max-width: calc(19vw - #{$padding_1});
+                }
+            }
+        }
+    }
+
+    // tiles__overlay
+    &__overlay {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+
+    // tiles__button
+    &__button {
+        z-index: 1;
+        margin-top: $padding_0_5;
+    }
+
+    /* options
+    ------------------------------------------------------------------------------------------------------------------------------- */
+    &.option-style {
+        &-standard {
+            .tiles__links__link {
+                flex: 0 0 25%;
+
+                @media only screen and (max-width: $responsive-lg) {
+                    flex: 0 0 50%;
+                }
+
+                @media only screen and (max-width: $responsive-sm) {
+                    flex: 0 0 100%;
+                }
+            }
+        }
+
+        &-row {
+            .slick-slide {
+                margin: 0;
+            }
+            .slick-track {
+                height: auto;
+            }
+
+            .container {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.option-display_triangle {
+        .tiles__links__link {
+            position: relative;
+            background-color: $border_color;
+
+            &:nth-of-type(2),
+            &:nth-of-type(4),
+            &:nth-of-type(10),
+            &:nth-of-type(12),
+            &:nth-of-type(18),
+            &:nth-of-type(20) {
+
+                background-color: #fff;
+
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border: 0 solid transparent;
+                    border-top-width: 35px;
+                    border-bottom-width: 35px;
+                    border-right: 35px solid #fff;
+                    position: absolute;
+                    z-index: 2;
+                    top: calc(50% - 35px);
+                    left: -35px;
+
+                    @media only screen and (max-width: $responsive-lg) {
+                        display: none;
+                    }
+                }
+            }
+
+            &:nth-of-type(5),
+            &:nth-of-type(7),
+            &:nth-of-type(13),
+            &:nth-of-type(15),
+            &:nth-of-type(21),
+            &:nth-of-type(23)  {
+
+                background-color: #fff;
+
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border: 0 solid transparent;
+                    border-bottom-width: 35px;
+                    border-top-width: 35px;
+                    border-left: 35px solid #fff;
+                    position: absolute;
+                    z-index: 2;
+                    top: calc(50% - 35px);
+                    right: -35px;
+
+                    @media only screen and (max-width: $responsive-lg) {
+                        display: none;
+                    }
+                }
+            }
+
+            @media only screen and (max-width: $responsive-lg) {
+                &:nth-of-type(4),
+                &:nth-of-type(5),
+                &:nth-of-type(8),
+                &:nth-of-type(9),
+                &:nth-of-type(11),
+                &:nth-of-type(12),
+                &:nth-of-type(13),
+                &:nth-of-type(20),
+                &:nth-of-type(21) {
+                    background-color: $border_color;
+                }
+
+                &:nth-of-type(3),
+                &:nth-of-type(6),
+                &:nth-of-type(7),
+                &:nth-of-type(10),
+                &:nth-of-type(11),
+                &:nth-of-type(14),
+                &:nth-of-type(19),
+                &:nth-of-type(22) {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,154 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../base/variables";
+@import "../base/container";
+@import "../base/mixins";
+
+.downloads {
+
+    &.layout-background-color {
+        .container {
+            @include helpers-text-headersRemoveColor;
+        }
+    }
+    
+    &-table {
+        width: 100%;
+    }
+
+    &-heading {
+        display: flex;
+
+        & > th {
+            display: flex;
+            flex: 0 0 25%;
+            background-color: $primary_color;
+            color: $primary_color_text;
+            padding: $padding_0_5;
+
+            span {
+                display: flex;
+
+                &::after {
+                    content: '';
+                    background-image: url('/wp-content/themes/hush-parent/images/sort-solid.svg');
+                    width: 12px;
+                    height: 18px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: flex;
+                    margin-left: $padding_0_5;
+                }
+            }
+        }
+
+        &.description {
+            & > th {
+                display: flex;
+                flex: 0 0 20%;
+            }
+        }
+    }
+
+
+    &-rows {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        & > td {
+            flex: 0 0 25%;
+            padding: $padding_0_5;
+            background-color: white;
+        }
+
+        &.description {
+            & > td {
+                flex: 0 0 20%;
+            }
+        }
+
+        &:nth-of-type(odd) {
+            td {
+                background-color: #F1F1F1;
+            }
+        }
+    }
+
+    .type {
+        text-transform: uppercase;
+    }
+
+    .download-more-info {
+        display: none;
+        flex: 0 0 100% !important;
+        flex-direction: column;
+        padding: $padding_0_5;
+        opacity: 0;
+        @include transition(all 0.5s ease-out);
+
+        &.show {
+            display: flex;
+            opacity: 1;
+        }
+    }   
+
+    .download-read-more {
+        &::after {
+            content: "\f107";
+            font-family: $fontawesome;
+            font-weight: 900;
+            @include transition(transform 0.5s ease);
+            font-size: inherit;
+            padding-left: $padding_0_25;
+        }
+
+        &.open {
+            &::after {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $responsive-lg) { 
+
+    .downloads {
+
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        th {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin: 0 0 1rem 0;
+        }
+        
+        td {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            position: absolute;
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        td:nth-of-type(1):before { content: "File"; }
+        td:nth-of-type(2):before { content: "Description"; }
+        td:nth-of-type(3):before { content: "Type"; text-transform: capitalize; }
+        td:nth-of-type(4):before { content: "Size"; }
+        td:nth-of-type(5):before { content: "Date"; }
+    }
+}

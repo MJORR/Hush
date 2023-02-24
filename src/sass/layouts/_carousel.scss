@@ -1,0 +1,70 @@
+@import "../base/variables";
+@import "../base/slick";
+@import "../helpers/text";
+
+.carousel {
+    // background
+    &.layout-background-color {
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+
+        &.option-slickdots_type-dots {
+            @include helpers-layout-slickColorDots;
+        }
+        &:not(.option-slickdots_type-dots) {
+            @include helpers-layout-slickColorPages;
+        }
+    }
+
+    // carousel__items
+    &__items {
+        display: flex; //? prevent layout shift
+        align-items: stretch;
+    }
+
+    // carousel__item
+    &__item {
+        position: relative;
+
+        // carousel__item__picture
+        &__picture {
+            position: relative !important;
+
+            .background {
+                position: absolute !important;
+            }
+
+            margin-bottom: $padding_1;
+
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 50%;
+            }
+        }
+    }
+
+    // slick options
+    .slick-dots {
+        margin-top: $padding_2;
+    }
+
+    /* Options
+    --------------------------------------------------------------------- */
+    // arrows
+    &.option-slick_arrows {
+        .posts__links.slick-initialized {
+            @media only screen and (min-width: $responsive-md) and (max-width: 1500px) {
+                width: calc(100% - #{$padding_3}) !important;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    //border radius
+    &.option-rounded_image_borders {
+        .carousel__item__picture .background {
+            border-radius: $border_radius;
+        }
+    }
+}

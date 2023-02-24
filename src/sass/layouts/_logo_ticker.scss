@@ -1,0 +1,109 @@
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.logo-ticker-block {
+
+    &.layout-nobackground {
+        .logo-ticker {
+            // Feather Effect
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 5rem;
+                height: 100%;
+                z-index: 2;
+                background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+                background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+                background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+                pointer-events: none;        
+            }
+            &::before {
+                left: 0;
+            }
+            &::after {
+                right: 0;
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    &.layout-background-color {
+        padding: $padding_3 0;
+    }
+
+    .logo-ticker {
+        padding: 0px 40px;
+        margin: 0px;
+        position: relative;
+
+        .slick-slide {
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                object-fit: contain;
+            }
+        }
+
+        li {
+            padding: 0 $padding_1;
+            width: 300px !important;
+            @include transition(none);
+            a {
+                img {
+                    opacity: 1;
+                    @include transition(opacity .3s ease);
+                }
+
+                &:hover img {
+                    opacity: .5;
+                }
+            }
+
+            img, svg {
+                display: block;
+                height: 7rem;
+                width: auto;
+                max-width: 14rem;
+                object-fit: contain;
+            }
+
+            // IE Fixes
+            @supports (object-fit: contain) {
+                background-image: none !important;
+            }
+
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                height: 5rem;
+                width: 20rem;
+                background: center/contain no-repeat;
+                padding: 0;
+                margin: 0 $padding_1;
+
+                img {
+                    display: none;
+                }
+            }
+        }
+        
+        // Slick Transition Fix
+        div {
+            @include transition(none);     
+            height: inherit;
+        }
+    }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+}
+
+@media only screen and (max-width: $responsive-md) {
+    .logo-ticker li {
+        img, svg {height: 4rem;}
+    }
+}

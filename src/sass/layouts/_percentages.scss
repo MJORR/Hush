@@ -1,0 +1,105 @@
+@import "../base/container";
+@import "../helpers/layout";
+@import "../base/variables";
+
+.percentages {
+
+    //background no container
+    &.layout-background-color {
+        @include helpers-layout-framePadding;
+    }    
+
+    &.left {
+        .heading {
+            text-align: left;
+        }
+    }
+
+    &.center {
+        .heading {
+            text-align: center;
+        }
+    }
+
+    &.right {
+        .heading {
+            text-align: right;
+        }
+    }
+
+    .heading {
+        padding-top: 0 !important;
+
+        &__inner {
+            margin-left: unset;
+            width: 100%;
+        }
+
+        h2 {
+            color: inherit;
+        }
+    }
+
+    //background in container
+    .container {
+        &.layout-background-color {
+            padding: $padding_3;
+        } 
+    }
+
+    &_stats {
+        
+        &_outer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            @media only screen and (max-width: $responsive-md) {
+                justify-content: space-evenly;
+            }
+        }
+
+        &_inner {
+            z-index: 1;
+            color: inherit;
+        }
+
+        &_stat {
+            position: relative;
+
+            border-left: 2px solid;
+            padding-left: $padding_0_5;
+            padding-right: $padding_0_5;
+            padding-top: $padding_0_5;
+            padding-bottom: $padding_0_25;
+
+            @media only screen and (max-width: $responsive-md) {
+                border-left: 0;
+                padding: $padding_1;
+            }
+        }
+
+        &_number {
+            position: relative;
+            display: inline-block;
+            font-size: $h1_size;
+            font-weight: 900;
+
+            span {
+                position: relative;
+                z-index: 1;
+                padding: 0 10px;
+            }
+
+            .darken {
+                top: 50%;
+            }
+        }
+
+        &_text {
+            font-size: $large_size;
+            margin-top: 10px;
+        }
+    }
+}

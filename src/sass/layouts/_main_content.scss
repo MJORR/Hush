@@ -1,0 +1,132 @@
+@import "../helpers/padding";
+@import "../helpers/layout";
+@import "../helpers/text";
+@import "../base/variables";
+@import "../base/container";
+@import "../base/typography_variables";
+
+.main-content {
+    @include helpers-padding-frame;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    .text {
+        width: 100%;
+    }
+
+    /* Options
+    ------------------------------------------------------------- */
+    &.layout-background-color {
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+    }
+
+    &.option-background-opacity {
+        @include helpers-layout-themecolorBackgroundOpacity50;
+    }
+
+    &.option-highlight {
+        p:first-of-type:not(blockquote > p) {
+            color: $primary_color;
+            @extend .p_large;
+            font-weight: 500;
+        }
+    }
+
+    &.option-align {
+        &-left {
+            align-items: flex-start;
+        }
+
+        &-center {
+            align-items: center;
+        }
+
+        &-right {
+            align-items: flex-end;
+        }
+    }
+
+    .view-all {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    blockquote {
+        border-left: 3px solid $primary_color;
+        padding: 0px 30px;
+        width: 90%;
+        margin: 0px auto 2.4rem auto;
+        font-weight: 700;
+
+        p {
+            &:only-of-type {
+                margin-bottom: 0px;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .wp-caption.alignnone {
+        width: 100% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wp-caption-text {
+        text-align: center;
+        color: #757575;
+        font-size: 14px;
+        padding: 10px;
+        font-weight: 400;
+        margin: 0px;
+    }
+
+    .cta__buttons {
+        margin-top: $padding_1;
+    }
+
+    .read-more {
+        position: relative;
+
+        color: $primary_color;
+        //font-size: 18px;
+        //line-height: 30px;
+        //font-weight: 500;
+        cursor: pointer;
+        display: inline-block;
+        width: auto;
+        text-align: center;
+        margin-top: $padding_2;
+        font-weight: bold;
+
+        &::after {
+            position: relative;
+            content: "\f078";
+            font-family: $fontawesome;
+            //width: 30px;
+            //height: 30px;
+            display: inline-block;
+            //margin: 10px auto;
+
+            margin-left: $padding_0_5;
+
+            transition: all 0.7s ease;
+            will-change: transform;
+        }
+        &.up::after {
+            transform: rotate(180deg);
+            top: -2px;
+        }
+    }
+}

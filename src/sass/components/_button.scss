@@ -1,0 +1,249 @@
+.hush-btn-primary {
+  display: inline-block;
+
+  padding: $padding_0_5 $padding_1 !important;
+  box-sizing: border-box;
+
+  color: $primary_color_text !important;
+  text-decoration: none !important;
+  font-weight: 900;
+  text-align: center;
+
+  border-style: unset;
+  border-color: unset;
+  border-image: unset;
+
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: $padding_0_5 !important;
+  }
+
+  background: $primary_color !important;
+  color: $primary_color_text !important;
+  border-radius: 0 !important;
+
+  &:hover {
+    background: $primary_color_75 !important;
+  }
+
+  // hover
+  @include transition((all 0.125s ease-in-out));
+
+  /* Colours
+    ------------------------------------------------------------- */
+  &.option-small {
+    padding: calc((#{$padding_0_75}* 0.75)) calc((#{$padding_0_5}* 0.75));
+    padding-top: calc((#{$padding_0_75}* 0.75) + 3px);
+    font-weight: normal;
+  }
+
+  &.option-primary {
+    background: $primary_color !important;
+    color: $primary_color_text !important;
+
+    &:hover {
+      background: $primary_color_75 !important;
+    }
+  }
+
+  &.option-secondary {
+    background: $secondary_color !important;
+    color: $secondary_color_text !important;
+
+    &:hover {
+      background: $secondary_color_75 !important;
+    }
+  }
+
+  &.option-tertiary {
+    background: $tertiary_color !important;
+    color: $tertiary_color_text !important;
+
+    &:hover {
+      background: $tertiary_color_75 !important;
+    }
+  }
+
+  /* Options
+    ------------------------------------------------------------- */
+  // Caps
+  &.option-caps {
+    text-transform: uppercase !important;
+  }
+
+  // Rounded Option
+  &.option-end-rounded {
+    border-radius: $border_radius !important;
+  }
+
+  // Rounded Fully
+  &.option-end-full {
+    border-radius: $padding_1 !important;
+  }
+
+  // No Background
+  &:not(.option-white).button.option-nobackground {
+    &.option-primary {
+      //border: 3px solid $primary_color;
+      box-shadow: inset 0px 0px 0px 3px $primary_color !important;
+      color: $primary_color !important;
+      background-color: unset !important;
+
+      &:hover {
+        background-color: $primary_color !important;
+        color: $primary_color_text !important;
+      }
+    }
+
+    &.option-secondary {
+      //border: 3px solid $secondary_color;
+      box-shadow: inset 0px 0px 0px 3px $secondary_color !important;
+      color: $secondary_color !important;
+      background-color: unset !important;
+
+      &:hover {
+        background-color: $secondary_color !important;
+        color: $secondary_color_text !important;
+      }
+    }
+
+    &.option-tertiary {
+      //border: 3px solid $tertiary_color;
+      box-shadow: inset 0px 0px 0px 3px $tertiary_color !important;
+      color: $tertiary_color !important;
+      background-color: unset !important;
+
+      &:hover {
+        background-color: $tertiary_color !important;
+        color: $tertiary_color_text !important;
+      }
+    }
+  }
+
+  &.option-nobackground {
+    background: unset;
+    //border: 3px solid $primary_color;
+    box-shadow: inset 0px 0px 0px 3px $primary_color !important;
+    color: $primary_color !important;
+    background-color: unset !important;
+
+    &.option-white {
+      &.option-primary {
+        &:hover {
+          color: $primary_color !important;
+        }
+      }
+
+      &.option-secondary {
+        &:hover {
+          color: $secondary_color !important;
+        }
+      }
+
+      &.option-tertiary {
+        &:hover {
+          color: $tertiary_color !important;
+        }
+      }
+    }
+  }
+
+  // White
+  &:not(.option-nobackground).button.option-white {
+    background-color: white !important;
+    color: $primary_color !important;
+
+    &:hover {
+      background: rgb(228, 228, 228) !important;
+      box-shadow: inset 0px 0px 0px 3px rgb(228, 228, 228) !important;
+    }
+
+    &.option-primary {
+      color: $primary_color !important;
+    }
+
+    &.option-secondary {
+      color: $secondary_color !important;
+    }
+
+    &.option-tertiary {
+      color: $tertiary_color !important;
+    }
+  }
+  &.option-white {
+    //border-color: white;
+    box-shadow: inset 0px 0px 0px 3px white !important;
+    color: white !important;
+
+    &:hover {
+      background-color: white !important;
+      color: $primary_color !important;
+    }
+  }
+
+  // Invert
+  &:not(.button.option-nobackground).option-invert {
+    &.option-primary {
+      background-color: $primary_color_text !important;
+      color: $primary_color !important;
+
+      &:hover {
+        background-color: $primary_color_75 !important;
+      }
+    }
+
+    &.option-secondary {
+      background-color: $secondary_color_text !important;
+      color: $secondary_color !important;
+
+      &:hover {
+        background-color: $secondary_color_75 !important;
+      }
+    }
+
+    &.option-tertiary {
+      background-color: $tertiary_color_text !important;
+      color: $tertiary_color !important;
+
+      &:hover {
+        background-color: $tertiary_color_75 !important;
+      }
+    }
+  }
+
+  &:not(.option-white).button.option-nobackground.option-invert {
+    &.option-primary {
+      //border: 3px solid $primary_color_text;
+      box-shadow: inset 0px 0px 0px 3px $primary_color_text !important;
+      color: $primary_color_text !important;
+
+      &:hover {
+        background-color: $primary_color_text !important;
+        color: $primary_color !important;
+      }
+    }
+
+    &.option-secondary {
+      //border: 3px solid $secondary_color_text;
+      box-shadow: inset 0px 0px 0px 3px $secondary_color_text !important;
+      color: $secondary_color_text !important;
+
+      &:hover {
+        background-color: $secondary_color_text !important;
+        color: $secondary_color !important;
+      }
+    }
+
+    &.option-tertiary {
+      //border: 3px solid $tertiary_color_text;
+      box-shadow: inset 0px 0px 0px 3px $tertiary_color_text !important;
+      color: $tertiary_color_text !important;
+
+      &:hover {
+        background-color: $tertiary_color_text !important;
+        color: $tertiary_color !important;
+      }
+    }
+  }
+}

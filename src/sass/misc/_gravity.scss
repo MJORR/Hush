@@ -1,0 +1,505 @@
+@import "../base/variables";
+@import "../base/typography_variables";
+@import "../base/mixins";
+
+// Pagination
+.pagination_wrapper .pagination {
+    flex-direction: column;
+}
+
+.gform_wrapper,
+.woo_wrapper {
+    // Body
+    .gform_body {
+        width: 100%;
+    }
+
+    .gform_description {
+        margin: 0 0 $padding_0_75 0;
+        display: flex;
+    }
+
+    // Label
+    .gfield_label {
+        padding-left: $padding_0_5;
+    }
+
+    /* All Fields
+    ------------------------------------------------------------------------------------------- */
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+    textarea,
+    select {
+        border: 0;
+        padding: $padding_0_5 !important;
+        line-height: calc(#{$normal_size} + (#{$normal_size} / 2)) !important;
+        width: 100%;
+
+        @include transition((border 0.3s ease-in-out));
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .gfield_password_strength {
+        border: 0 !important;
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: $padding_0_5 !important;
+    }
+
+    // Check Boxs
+    gravity-theme .gfield-choice-input {
+        vertical-align: unset !important;
+    }
+
+    gravity-theme .gfield_checkbox label,
+    gravity-theme .gfield_radio label {
+        font-size: unset !important;
+    }
+
+    // Select
+    .ginput_container_select,
+    .name_prefix_select {
+        position: relative !important;
+        cursor: pointer;
+
+        &:after {
+            position: absolute;
+            top: calc(#{$padding_0_5} + 3px);
+            right: $padding_0_25;
+
+            font-family: $fontawesome;
+            content: "\f078";
+            color: $primary_color;
+            font-weight: 400;
+
+            width: $padding_1;
+
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        select {
+            cursor: pointer;
+        }
+    }
+
+    // Consent
+    .ginput_container_consent {
+        display: flex;
+        align-items: center;
+
+        input {
+            margin: 0 !important;
+            margin-right: $padding_0_5 !important;
+        }
+
+        @media only screen and (min-width: $responsive_lg) {
+            width: 50%;
+        }
+    }
+
+    .gfield_consent_label {
+        @extend .p_small;
+    }
+
+    // Number
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        opacity: 1;
+    }
+
+    // Tooltip
+    .gravity-tooltip {
+        background: unset;
+
+        &:after {
+            font-family: $fontawesome;
+            content: "\f05a";
+            color: $primary_color_25;
+        }
+    }
+
+    .tippy-box[data-theme~="light-border"] {
+        font-size: $normal_size;
+        padding: $padding_0_5;
+        font-weight: 500;
+    }
+
+    // Validation Error Fix
+    div.validation_error {
+        width: calc(100% - 16px) !important;
+    }
+
+    // bottom padding
+    gravity-theme .gform_footer,
+    gravity-theme .gform_page_footer {
+        padding-bottom: 0 !important;
+    }
+
+    gravity-theme .gform_footer button,
+    gravity-theme .gform_footer input,
+    gravity-theme .gform_page_footer button,
+    gravity-theme .gform_page_footer input {
+        margin-bottom: 0 !important;
+    }
+
+    // Progress Bar
+    .form--border {
+        .gf_progressbar_wrapper {
+            background-color: $secondary-color;
+            padding: $padding_0_25 $padding_1 !important;
+        }
+
+        .gf_progressbar_title {
+            padding: $padding_0_25 $padding_1 !important;
+            color: white !important;
+        }
+
+        .gf_progressbar {
+            margin: $padding_0_25 $padding_1 !important;
+        }
+    }
+
+    .form--normal {
+        .gf_progressbar_wrapper {
+            margin-bottom: $padding_2;
+        }
+    }
+
+    .gf_progressbar_title {
+        margin: 0 !important;
+        font-size: unset !important;
+        font-weight: 900 !important;
+    }
+
+    .gf_progressbar_percentage {
+        background-color: $primary_color !important;
+    }
+
+    // Section
+    .gsection {
+        margin-top: $padding_1;
+    }
+
+    .gsection_title {
+        margin-bottom: $padding_0_5;
+        font-weight: 900;
+    }
+
+    // Confirmation Message
+    .gravity-theme
+        .ginput_complex:not(.ginput_container_address)
+        fieldset:not([style*="display:none"]):not(.ginput_full),
+    .gravity-theme
+        .ginput_complex:not(.ginput_container_address)
+        span:not([style*="display:none"]):not(.ginput_full) {
+        padding-right: 0 !important;
+    }
+
+    .gfield_error .gfield_repeater_cell label,
+    .gfield_error legend,
+    .gfield_validation_message,
+    .validation_message {
+        padding-top: 13px !important;
+    }
+
+    // Required Legend
+    .gform_footer,
+    .gform_page_footer {
+        display: flex;
+        align-items: center;
+
+        .button {
+            margin-bottom: 0 !important;
+        }
+
+        @media only screen and (max-width: $responsive-md) {
+            flex-direction: column;
+
+            .button {
+                width: 100%;
+                margin: $padding_0_10 !important;
+            }
+
+            .required_legend {
+                margin-top: $padding_1;
+                order: 100 !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+
+        .required_legend_key {
+            color: #c02b0a;
+            font-size: $small_size;
+        }
+    }
+
+    /* Options
+    ------------------------------------------------------------------------------------------- */
+    // border
+    &.option-border {
+        // steps
+
+        form:not(.cart):not(.woocommerce-cart-form) {
+            &.pagination {
+                // remove bottom border
+                & > div:first-child {
+                    border-bottom: unset !important;
+                    margin-bottom: $padding_1 !important;
+                }
+
+                // add border around step
+                .gform_body {
+                    padding: $padding_2;
+                    @media only screen and (max-width: $responsive-md) {
+                        padding: $padding_1;
+                    }
+
+                    border: $border_size solid $border_color;
+
+                    .gform_page_footer {
+                        margin-top: $padding_2;
+                        padding: 0px !important;
+                    }
+                }
+            }
+
+            &:not(.pagination) {
+                padding: $padding_2;
+                @media only screen and (max-width: $responsive-md) {
+                    padding: $padding_1;
+                }
+
+                border: $border_size solid $border_color !important;
+            }
+        }
+
+        &.option-rounded {
+            form {
+                &.pagination {
+                    .gform_body {
+                        border-radius: $border_radius !important;
+                    }
+                }
+
+                &:not(.pagination) {
+                    border-radius: $border_radius !important;
+                }
+            }
+        }
+    }
+
+    // rounded fields
+    &.option-rounded {
+        // not fully rounded
+        &:not(.option-fully_rounded) {
+            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+            textarea,
+            select {
+                border-radius: $border_radius;
+            }
+
+            .gform_validation_errors,
+            .gfield_description {
+                border-radius: $border_radius;
+            }
+        }
+
+        // fully rounded
+        &.option-fully_rounded {
+            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+            textarea,
+            select {
+                border-radius: $padding_1;
+                padding: $padding_0_5 $padding_0_75 !important;
+            }
+
+            .gform_validation_errors,
+            .gfield_description {
+                border-radius: $padding_1;
+                padding: $padding_0_5 $padding_0_75 !important;
+
+                h2 {
+                    margin-left: $padding_0_5;
+                }
+            }
+        }
+
+        .gf_step {
+            &:after {
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &:not(.option-rounded) {
+        .gform_validation_errors,
+        .gfield_description {
+            border-radius: 0 !important;
+        }
+    }
+
+    // hover style
+    &.option-hover_style {
+        // whole
+        &-whole {
+            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+            textarea,
+            select {
+                border: $border_size solid $border_color !important;
+
+                &:active,
+                &:focus {
+                    border: $border_size solid $primary_color !important;
+                }
+            }
+        }
+
+        // bottom
+        &-bottom {
+            input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+            textarea,
+            select {
+                border-bottom: 3px solid $border_color !important;
+
+                &:active,
+                &:focus {
+                    border-bottom: 3px solid $primary_color !important;
+                }
+            }
+        }
+    }
+
+    // field backgrounds
+    &.option-bg_field {
+        input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+        textarea,
+        select {
+            background-color: #f1f1f1;
+        }
+    }
+
+    &:not(option-bg_field) {
+        input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+        textarea,
+        select {
+            background-color: unset;
+        }
+    }
+
+    // required_primary
+    &.option-required_primary {
+        .gfield_required {
+            color: $primary_color !important;
+        }
+
+        .required_legend_key {
+            color: $primary_color;
+        }
+    }
+
+    // helper_side
+
+    &.option-helper_side {
+        &-left {
+            .button {
+                @media only screen and (min-width: $responsive-md) {
+                    &:not(:last-child) {
+                        margin-right: 0 !important;
+                    }
+
+                    margin-left: $padding_0_5 !important;
+                }
+            }
+
+            .required_legend {
+                order: -1;
+                margin-right: auto;
+            }
+        }
+
+        &-right {
+            .required_legend {
+                margin-left: auto;
+            }
+        }
+    }
+
+    // step_style
+    &.option-step_style {
+        // lines
+        &-lines {
+            .gf_page_steps {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+
+                @media only screen and (max-width: $responsive-md) {
+                    flex-direction: column;
+                }
+
+                .gf_step {
+                    flex: 1;
+                    position: relative;
+                    color: $border_color;
+                    display: flex;
+                    flex-direction: column;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    @media only screen and (max-width: $responsive-md) {
+                        margin-right: 0 !important;
+                    }
+
+                    span {
+                        &:first-child {
+                            display: none;
+                        }
+
+                        &:last-child {
+                            padding-left: 0;
+                            margin-bottom: $padding_0_75;
+                        }
+                    }
+
+                    &:after {
+                        display: block;
+                        content: "";
+                        width: 100%;
+                        height: 10px;
+                        margin-top: auto;
+
+                        background-color: $border_color;
+                    }
+
+                    &.gf_step_active,
+                    &.gf_step_completed {
+                        color: $primary_color;
+
+                        &:after {
+                            background-color: $primary_color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // back_clear
+    &.option-back_clear {
+        .gform_previous_button {
+            border: unset !important;
+            box-shadow: unset !important;
+        }
+    }
+}

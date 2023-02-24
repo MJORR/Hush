@@ -1,0 +1,219 @@
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.image-gallery,
+.accordion,
+.store {
+    &.option-thumb_alignment {
+        &-left {
+            .image-gallery__gallery__thumbs,
+            .accordion__gallery__thumbs,
+            .store__gallery__thumbs {
+                .slick-track {
+                    margin-left: 0 !important;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        &-center {
+            .image-gallery__gallery__thumbs,
+            .accordion__gallery__thumbs,
+            .store__gallery__thumbs {
+                .slick-track {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        &-right {
+            .image-gallery__gallery__thumbs,
+            .accordion__gallery__thumbs,
+            .store__gallery__thumbs {
+                .slick-track {
+                    margin-left: auto;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+
+    &__gallery {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        &__main {
+            position: relative;
+
+            border-radius: $border_radius;
+            overflow: hidden;
+        }
+
+        // image-gallery__gallery__thumbs
+        &__thumbs {
+            margin-top: $padding_1;
+        }
+
+        &__large {
+            position: relative;
+
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 60%;
+            }
+
+            .enlarge {
+                position: absolute;
+                top: 0;
+                //right: 0;
+                z-index: 20;
+                font-size: 2.8rem;
+                width: 1.8em;
+                height: 1.8em;
+                background-color: $primary_color;
+                color: #fff;
+                border: 0;
+                cursor: pointer;
+                @include transition(background 0.3s ease);
+                border-top-left-radius: $border_radius;
+
+                &:hover {
+                    background: $secondary_color;
+                }
+            }
+        }
+
+        &__caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: $primary_color_opacity;
+            padding: $padding_0_5 $padding_1;
+
+            p {
+                color: $primary_color_text;
+            }
+        }
+
+        &__thumb {
+            position: relative;
+            border-radius: $border_radius;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 50%;
+            @include transition(opacity 0.5s ease-out);
+
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.slick-current {
+                opacity: 1;
+            }
+        }
+
+        &__popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(50, 50, 50, 0.6);
+            z-index: 100;
+            justify-content: center;
+            padding: 10px;
+            display: none;
+
+            &__wrapper {
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 15rem;
+                max-width: 130rem;
+                background: #fff;
+                position: relative;
+                border-radius: 10px;
+
+                i {
+                    position: absolute;
+                    top: 0px;
+                    right: 0;
+                    padding: 10px;
+                    color: $primary_color;
+                    font-size: 24px;
+                    cursor: pointer;
+                    z-index: 2;
+                    @include transition(color 0.3s 0.3s ease);
+                }
+
+                &__content {
+                    background: #fff;
+                    width: 100%;
+                    /* max-height: calc(85vh - 5.8rem);
+          min-height: 70vh; // Calc Fallback
+          min-height: calc(70vh - 5.8rem);
+          height: 85vh; */
+                    max-height: 85vh;
+                    display: flex;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    //overflow-y: scroll;
+
+                    @media only screen and (max-width: 600px) {
+                        max-height: calc(70vh - 5.8rem);
+                    }
+
+                    .image-container {
+                        //background-color: #979797;
+                        //padding: $padding_2;
+                        //margin: 0;
+                        flex: 100%;
+                        display: flex;
+                        align-content: center;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            //width: 100%;
+                            //height: 100%;
+                            max-width: 100%;
+                            object-fit: contain;
+                            border-radius: $border_radius;
+                        }
+                    }
+                }
+            }
+
+            &.show {
+                opacity: 1;
+                visibility: visible;
+                display: flex;
+
+                .popup__wrapper {
+                    opacity: 1;
+                    @include transform(translateY(0));
+                    @include transition(
+                        (opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s)
+                    );
+                    &__close {
+                        opacity: 1;
+                        @include transition(opacity 0.3s ease 1.2s);
+                    }
+                }
+            }
+        }
+    }
+}

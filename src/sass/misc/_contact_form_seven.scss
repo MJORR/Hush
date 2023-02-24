@@ -1,0 +1,138 @@
+.wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    // Confirmation Message
+    &.sent .wpcf7-response-output {
+        border-color: $secondary-color !important;
+        padding: $padding_2 $padding_4 !important;
+        background-color: $secondary-color !important;
+        color: white !important;
+        text-align: center;
+    }
+
+    .half {
+        flex: 0 0 48%;
+
+        @media only screen and (max-width: $responsive-sm) {
+            flex: 0 0 100%;
+        }
+    }
+
+    p {
+        flex: 1 0 100%;
+    }
+
+    // Label
+    label {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    // Radio/ Check labels
+    .wpcf7-list-item-label {
+        font-weight: 400;
+    }
+
+    // All Fields
+    .wpcf7-text:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+    .wpcf7-number,
+    .wpcf7-textarea,
+    .wpcf7-quiz,
+    .wpcf7-date,
+    .wpcf7-select {
+        background-color: #f1f1f1;
+        border: 0;
+        padding: $padding_0_5 !important;
+        border-bottom: 3px solid #f1f1f1;
+        line-height: calc(#{$normal_size} + (#{$normal_size} / 2)) !important;
+        width: 100%;
+        @include transition((border-bottom 0.3s ease-in-out));
+
+        &:active,
+        &:focus {
+            border-bottom: 3px solid $primary_color;
+        }
+    }
+
+    // Select
+    .wpcf7-select {
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        /*&:after {
+            position: absolute;
+            top: calc(#{$padding_0_5} + 3px);
+            right: 10px;
+
+            font-family: $fontawesome;
+            content: "\f078";
+            color: $primary_color;
+            font-weight: 900;
+
+            width: $padding_1;
+
+            z-index: 1;
+            pointer-events: none;
+        }*/
+
+        option {
+            cursor: pointer;
+        }
+    }
+
+
+    .select_wrapper {
+        position: relative;
+
+        &::after {
+            /*content: '\f107';
+            font-family: 'font awesome 5 pro';
+            font-weight: 700;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: calc(1.6rem * 3);
+            height: calc(100% - 2px);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            pointer-events: none;*/
+
+
+            position: absolute;
+            top: calc(#{$padding_0_5} + 3px);
+            right: 10px;
+
+            font-family: $fontawesome;
+            content: "\f078";
+            color: $primary_color;
+            font-weight: 900;
+
+            width: $padding_1;
+
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+    
+
+    // Check Boxs
+    .wpcf7-checkbox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Radio Buttons
+    .wpcf7-radio {
+        display: flex;
+        flex-direction: column;
+    }
+}

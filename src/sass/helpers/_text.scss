@@ -1,0 +1,114 @@
+@mixin helpers-text-headersInherentColor {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: inherit !important;
+    }
+}
+
+@mixin helpers-text-headersInherentColor-standard {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: inherit;
+    }
+}
+
+@mixin helpers-text-headersRemoveMargin {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 !important;
+    }
+}
+
+@mixin helpers-text-headersRemoveColor {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: unset !important;
+    }
+}
+
+@mixin helpers-text-headersChange($color) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $color;
+    }
+}
+
+@mixin helpers-text-themecolorText {
+    &.option-primary {
+        color: $primary_color_text !important;
+    }
+
+    &.option-secondary {
+        color: $secondary_color_text !important;
+    }
+
+    &.option-tertiary {
+        color: $tertiary_color_text !important;
+    }
+
+    &.option-colour1 {
+        color: $color_1_text !important;
+    }
+
+    &.option-colour2 {
+        color: $color_2_text !important;
+    }
+
+    &.option-colour3 {
+        color: $color_3_text !important;
+    }
+
+    &.option-colour4 {
+        color: $color_4_text !important;
+    }
+}
+
+@mixin helpers-text-themecolorBackground {
+    &.option-primary {
+        color: $primary_color !important;
+    }
+
+    &.option-secondary {
+        color: $secondary_color !important;
+    }
+
+    &.option-tertiary {
+        color: $tertiary_color !important;
+    }
+
+    &.option-colour1 {
+        color: $color_1 !important;
+    }
+
+    &.option-colour2 {
+        color: $color_2 !important;
+    }
+
+    &.option-colour3 {
+        color: $color_3 !important;
+    }
+
+    &.option-colour4 {
+        color: $color_4 !important;
+    }
+}

@@ -1,0 +1,15 @@
+@mixin helpers-images-background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin helpers-images-background-contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin helpers-images-darken {
+    filter: brightness(75%);
+}

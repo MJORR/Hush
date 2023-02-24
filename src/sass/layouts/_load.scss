@@ -1,0 +1,419 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+
+// Color Adjustments
+.layouts {
+    &.option-primary {
+        @include helpers-text-headersChange($primary_color);
+
+        blockquote {
+            border-left: 3px solid $primary_color;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $primary_color;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $primary_color;
+        }
+
+        table {
+            border: 1px solid $primary_color;
+        }
+
+        .video__play {
+            color: $primary_color;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $primary_color;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $primary_color_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $primary_color;
+        }
+    }
+
+    &.option-secondary {
+        @include helpers-text-headersChange($secondary_color);
+
+        blockquote {
+            border-left: 3px solid $secondary_color;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $secondary_color;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $secondary_color;
+        }
+
+        table {
+            border: 1px solid $secondary_color;
+        }
+
+        .video__play {
+            color: $secondary_color;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $secondary_color;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $secondary_color_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $secondary_color;
+        }
+    }
+
+    &.option-tertiary {
+        @include helpers-text-headersChange($tertiary_color);
+
+        blockquote {
+            border-left: 3px solid $tertiary_color;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $tertiary_color;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $tertiary_color;
+        }
+
+        table {
+            border: 1px solid $tertiary_color;
+        }
+
+        .video__play {
+            color: $tertiary_color;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $tertiary_color;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $tertiary_color_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $tertiary_color;
+        }
+    }
+
+    &.option-colour1 {
+        @include helpers-text-headersChange($color_1);
+
+        blockquote {
+            border-left: 3px solid $color_1;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $color_1;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $color_1;
+        }
+
+        table {
+            border: 1px solid $color_1;
+        }
+
+        .video__play {
+            color: $color_1;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $color_1;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $color_1_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $color_1;
+        }
+    }
+
+    &.option-colour2 {
+        @include helpers-text-headersChange($color_2);
+
+        blockquote {
+            border-left: 3px solid $color_2;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $color_2;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $color_2;
+        }
+
+        table {
+            border: 1px solid $color_2;
+        }
+
+        .video__play {
+            color: $color_2;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $color_2;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $color_2_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $color_2;
+        }
+    }
+
+    &.option-colour3 {
+        @include helpers-text-headersChange($color_3);
+
+        blockquote {
+            border-left: 3px solid $color_3;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $color_3;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $color_3;
+        }
+
+        table {
+            border: 1px solid $color_3;
+        }
+
+        .video__play {
+            color: $color_3;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $color_3;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $color_3_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $color_3;
+        }
+    }
+
+    &.option-colour4 {
+        @include helpers-text-headersChange($color_4);
+
+        blockquote {
+            border-left: 3px solid $color_4;
+        }
+
+        .main-content.option-highlight p:first-of-type:not(blockquote > p) {
+            color: $color_4;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: $color_4;
+        }
+
+        table {
+            border: 1px solid $color_4;
+        }
+
+        .video__play {
+            color: $color_4;
+        }
+
+        .image-gallery__gallery__large .enlarge, 
+        .accordion__gallery__large .enlarge, 
+        .store__gallery__large .enlarge {
+            background-color: $color_4;
+        }
+
+        .image-block .image-block-container .images .image-block-caption,
+        .image-gallery__gallery__caption, 
+        .accordion__gallery__caption, 
+        .store__gallery__caption {
+            background-color: $color_4_opacity;
+        }
+
+        .textlink__links__link .textlink__links__icon .icon .fas,
+        .textlink__links__link .textlink__links__icon .icon .fa {
+            color: $color_4;
+        }
+    }
+}
+
+// Layout Adjustments
+.layout-background,
+.layout-nobackground,
+.layout-background-color {
+    @include helpers-layout-framePadding;
+}
+
+.layout-background {
+    background-color: $background_color;
+
+    &:not(.layout-reset) + .layout-background {
+        padding-top: 0;
+    }
+}
+
+// Particular Layout Adjustments
+
+// Background Color Layout Adjustments
+.layout-background-color,
+.auto-background-color {
+    &.option-primary {
+        background-color: $primary_color;
+        color: $primary_color_text;
+
+        & + .layout-background-color.option-primary {
+            padding-top: 0;
+        }
+    }
+
+    &.option-secondary {
+        background-color: $secondary_color;
+        color: $secondary_color_text;
+
+        & + .layout-background-color.option-secondary {
+            padding-top: 0;
+        }
+    }
+
+    &.option-tertiary {
+        background-color: $tertiary_color;
+        color: $tertiary_color_text;
+
+        & + .layout-background-color.option-tertiary {
+            padding-top: 0;
+        }
+    }
+
+    &.option-colour1 {
+        background-color: $color_1;
+        color: $color_1_text;
+
+        & + .layout-background-color.option-colour1 {
+            padding-top: 0;
+        }
+    }
+
+    &.option-colour2 {
+        background-color: $color_2;
+        color: $color_2_text;
+
+        & + .layout-background-color.option-colour2 {
+            padding-top: 0;
+        }
+    }
+
+    &.option-colour3 {
+        background-color: $color_3;
+        color: $color_3_text;
+
+        & + .layout-background-color.option-colour3 {
+            padding-top: 0;
+        }
+    }
+
+    &.option-colour4 {
+        background-color: $color_4;
+        color: $color_4_text;
+
+        & + .layout-background-color.option-colour4 {
+            padding-top: 0;
+        }
+    }
+}
+
+.layout-nobackground {
+    &:not(.layout-reset) + .layout-nobackground {
+        padding-top: 0;
+    }
+}
+
+// Layouts with headings above adjustments
+.heading {
+    & + .boxlink:not(.boxlink.option-image):not(.boxlink.option-column) {
+        h2 {
+            font-size: $h4_size;
+        }
+
+        .boxlink__links__icon .icon {
+            font-size: $h3_size;
+            max-width: $h3_size;
+        }
+    }
+}
+
+@import "../misc/list";

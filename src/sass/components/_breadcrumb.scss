@@ -1,0 +1,61 @@
+@import "../base/variables";
+@import "../base/typography_variables";
+@import "../base/mixins";
+
+.breadcrumb {
+    background-color: white;
+    color: $text_color;
+    z-index: 2;
+
+    order: 120;
+
+    &__outer {
+        padding: $padding_0_5 0;
+    }
+
+    display: block;
+
+    &.option-border {
+        border-bottom: $border_size solid $border_color;
+    }
+
+    a {
+        margin: 0 $padding_0_25;
+    }
+
+    & a:first-child {
+        margin-left: 0;
+
+        & + span a {
+            margin: 0 $padding_0_25;
+        }
+    }
+
+    .breadcrumb_last {
+        margin-left: $padding_0_25;
+        font-weight: bold;
+    }
+
+    /* options
+    --------------------------------------------------- */
+    // small text
+    &.option-small {
+        @extend .p_small;
+    }
+
+    // position
+    &.option-location-above {
+        order: 90;
+    }
+
+    // inline
+    &.option-inline {
+        .container {
+            width: 100%;
+        }
+
+        .breadcrumb__outer {
+            padding: 0;
+        }
+    }
+}

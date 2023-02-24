@@ -1,0 +1,98 @@
+@import "../base/variables";
+@import "../helpers/layout";
+
+.buttons {
+    @include helpers-layout-framePadding;
+
+    // buttons__all
+    &__all {
+        display: flex;
+        flex-wrap: wrap;
+        margin: calc(-1 * #{$padding_0_25});
+
+        .button,
+        .arrow {
+            margin: $padding_0_25;
+        }
+    }
+
+    /* Options
+    ------------------------------------------------------------- */
+    // Button
+    &.option-button {
+        // arrow
+        &-arrow {
+            // buttonCols
+            &.option-buttonCols {
+                &-1 {
+                    .arrow {
+                        flex: calc(100% - #{$padding_0_5}) 0 0;
+                    }
+                }
+
+                &-2 {
+                    .arrow {
+                        flex: calc(50% - #{$padding_0_5}) 0 0;
+
+                        @media only screen and (max-width: $responsive-sm) {
+                            flex: calc(100% - #{$padding_0_5}) 0 0;
+                        }
+                    }
+                }
+
+                &-3 {
+                    .arrow {
+                        flex: calc(33.33% - #{$padding_0_5}) 0 0;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            flex: calc(50% - #{$padding_0_5}) 0 0;
+                        }
+
+                        @media only screen and (max-width: $responsive-sm) {
+                            flex: calc(100% - #{$padding_0_5}) 0 0;
+                        }
+                    }
+                }
+
+                &-4 {
+                    .arrow {
+                        flex: calc(25% - #{$padding_0_5}) 0 0;
+
+                        @media only screen and (max-width: $responsive-lg) {
+                            flex: calc(33.33% - #{$padding_0_5}) 0 0;
+                        }
+
+                        @media only screen and (max-width: $responsive-md) {
+                            flex: calc(50% - #{$padding_0_5}) 0 0;
+                        }
+
+                        @media only screen and (max-width: $responsive-sm) {
+                            flex: calc(100% - #{$padding_0_5}) 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Alignment
+    &.option-alignment {
+        // left
+        &-left {
+        }
+
+        // centre
+        &-centre {
+            .buttons__all {
+                justify-content: center;
+            }
+        }
+
+        // right
+        &-right {
+            .buttons__all {
+                justify-content: flex-end;
+            }
+        }
+    }
+}

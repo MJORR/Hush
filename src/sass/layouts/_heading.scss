@@ -1,0 +1,284 @@
+@import "../helpers/layout";
+@import "../helpers/text";
+//@import "../components/button";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.heading {
+    @include helpers-layout-framePadding;
+    //padding-bottom: $padding_2 !important;
+
+    &.layout-background-color {
+        @include helpers-text-headersInherentColor;
+
+        /*.heading__inner__button {
+            a {
+                @extend .option-invert;
+            }
+        }*/
+    }
+
+    &__inner {
+        width: 60%;
+        margin: 0 auto;
+
+        @media only screen and (max-width: $responsive-lg) {
+            width: 100%;
+        }
+
+        @include helpers-text-headersRemoveMargin;
+
+        // heading__inner__title
+        &__title {
+            position: relative;
+
+            a {
+                color: inherit !important;
+                text-decoration: none !important;
+
+                &:hover {
+                    h2,
+                    h3 {
+                        &:after {
+                            padding-left: $padding_1;
+                        }
+                    }
+                }
+
+                h2,
+                h3 {
+                    display: flex;
+                    align-items: baseline;
+
+                    &:after {
+                        font-family: $fontawesome;
+                        content: "\f054";
+                        padding-left: $padding_0_5;
+                        font-weight: normal;
+
+                        @include transition(padding 0.5s ease);
+                    }
+                }
+
+                h2 {
+                    &:after {
+                        font-size: $h3_size;
+                    }
+                }
+
+                h3 {
+                    &:after {
+                        font-size: $h4_size;
+                    }
+                }
+            }
+
+            .icon {
+                img {
+                    max-width: 40%;
+                    height: auto;
+
+                    @media only screen and (max-width: $responsive-md) {
+                        max-width: 60%;
+                    }
+                }
+
+                i {
+                    font-size: $h1_size;
+                }
+
+                & + h2,
+                & + h4 {
+                    margin-top: $padding_1;
+                }
+            }
+        }
+
+        //heading__inner__button
+        &__button {
+            margin-top: $padding_0_5;
+        }
+    }
+
+    /* Options
+    -------------------------------------------------------------------------------------------- */
+    // Border Bottom
+    &.option-borderbottom {
+        .container,
+        .container_narrow,
+        .container_wide,
+        .container_full {
+            border-bottom: $border_size solid $border_color;
+            padding-bottom: $padding_3;
+        }
+    }
+
+    // Border Top
+    &.option-bordertop {
+        .container,
+        .container_narrow,
+        .container_wide,
+        .container_full {
+            border-top: $border_size solid $border_color;
+            padding-top: $padding_3;
+        }
+    }
+
+    // Border Left Right
+    &.option-border-leftright {
+        .container,
+        .container_narrow,
+        .container_wide,
+        .container_full {
+            border-right: $border_size solid $border_color;
+            border-left: $border_size solid $border_color;
+            padding-left: $padding_3;
+            padding-right: $padding_3;
+        }
+    }
+
+    // Plain
+    &.option-plain {
+        @include helpers-text-headersRemoveColor;
+
+        h2,
+        h3,
+        h4 {
+            font-weight: 400;
+        }
+    }
+
+    // Column
+    &.option-column {
+        .heading__inner {
+            display: flex;
+            width: 100%;
+
+            @media only screen and (max-width: $responsive-md) {
+                flex-direction: column;
+            }
+
+            &__title {
+                flex: 0 0 40%;
+                padding-right: $padding_2;
+
+                @media only screen and (max-width: $responsive-md) {
+                    padding-right: 0;
+                    margin-bottom: $padding_1;
+
+                    width: 100%;
+                }
+
+                .icon {
+                    img {
+                        max-width: 80%;
+
+                        @media only screen and (max-width: $responsive-md) {
+                            max-width: 60%;
+                        }
+                    }
+                }
+            }
+
+            &__content {
+                flex-grow: 1;
+            }
+
+            &__button {
+                white-space: nowrap;
+                margin: 0;
+            }
+        }
+
+        // title button
+        &.option-title_button {
+            .heading__inner {
+                &__button {
+                    padding-top: $padding_2;
+
+                    @media only screen and (max-width: $responsive-md) {
+                        padding-top: $padding_1;
+                    }
+                }
+            }
+        }
+
+        &:not(.option-title_button) {
+            .heading__inner {
+                &__button {
+                    padding-left: $padding_2;
+
+                    @media only screen and (max-width: $responsive-md) {
+                        padding-top: $padding_1;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &:not(.heading.option-column) {
+        .heading__inner {
+            &__content {
+                margin-top: $padding_0_5;
+            }
+        }
+
+        // full width
+        &.option-fullwidth {
+            .heading__inner {
+                width: 100%;
+            }
+        }
+    }
+
+    // Title Side
+    &.option-titleside {
+        &-left {
+            text-align: left;
+
+            .heading__inner {
+                margin-left: unset;
+            }
+        }
+
+        &-right {
+            text-align: right;
+
+            .heading__inner {
+                margin-right: unset;
+            }
+
+            a h2,
+            a h3 {
+                justify-content: flex-end;
+            }
+        }
+
+        &-center {
+            text-align: center;
+
+            a h2,
+            a h3 {
+                justify-content: center;
+            }
+        }
+    }
+
+    // No Title
+    &.option-no-title {
+        .heading__inner__content {
+            margin-top: 0 !important;
+        }
+    }
+
+    // Increase Size
+    &.option-increase-size {
+        .heading__inner__content {
+            p {
+                font-size: $large_size;
+            }
+        }
+    }
+}

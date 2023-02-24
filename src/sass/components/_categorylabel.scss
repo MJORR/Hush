@@ -1,0 +1,59 @@
+@import "../helpers/text";
+
+.categorylabel {
+    display: inline-flex;
+    align-items: center;
+
+    padding: $padding_0_25;
+    font-weight: bold;
+
+    background-color: $background_color;
+
+    // images and icons
+    .icon {
+        display: flex;
+        align-items: center;
+
+        margin-right: $padding_0_25;
+
+        img {
+            max-height: $normal_size;
+        }
+    }
+
+    /*options
+    ------------------------------------------------------------- */
+    // plain
+    &.option-plain {
+        background-color: white;
+        @include helpers-text-themecolorBackground;
+
+        // border
+        &.option-border {
+            @include helpers-layout-themecolorBorder;
+        }
+    }
+
+    &:not(.option-plain) {
+        @include helpers-text-themecolorText;
+        @include helpers-layout-themecolorBackground;
+    }
+
+    // shape
+    &.option-shape {
+        &-rounded,
+        &-full {
+            padding: $padding_0_25 $padding_0_5;
+        }
+
+        // rounded
+        &-rounded {
+            border-radius: $padding_0_25;
+        }
+
+        // full
+        &-full {
+            border-radius: $padding_1;
+        }
+    }
+}

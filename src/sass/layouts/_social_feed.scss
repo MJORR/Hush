@@ -1,0 +1,211 @@
+@import "../helpers/images";
+@import "../helpers/text";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+@import "../base/typography_variables";
+
+.social-feed {
+    padding: $padding_3 0;
+
+    &.layout-background-color {
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+
+        p,
+        a {
+            color: inherit;
+        }
+    }
+
+    &-others {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        li {
+            list-style: none;
+            margin: 0;
+            margin-right: $padding_0_5;
+
+            i {
+                padding: 12px 20px;
+                display: flex;
+                border-radius: 100%;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            .fa-facebook-f {
+                background-color: $facebook;
+            }
+
+            .fa-twitter {
+                background-color: $twitter;
+            }
+
+            .fa-linkedin-in {
+                background-color: $linkedin;
+            }
+
+            .fa-instagram {
+                background-color: $instagram;
+            }
+
+            .fa-youtube {
+                background-color: $youtube;
+            }
+        }
+    }
+
+    &__title__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0 0 100%;
+
+        .social-feed-others li {
+            margin-bottom: $padding_1;
+        }
+
+        @media only screen and (max-width: $responsive_sm) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    /* outer
+    ---------------------------------------------------------------------------------------------------- */
+    &__outer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        span {
+            word-break: break-word;
+        }
+    }
+
+    /* twitter
+    ---------------------------------------------------------------------------------------------------- */
+    &__twitter {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        //tweet
+        &__tweet {
+            @include transition((all 0.35s ease-in-out));
+            flex-basis: calc(25% - #{$uncalc_padding_1});
+            max-width: 25%;
+            margin-right: $padding_1;
+            padding: $padding_1;
+            border: $border_size solid $border_color;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            @media only screen and (max-width: $responsive_xl) {
+                flex-basis: calc(50% - #{$uncalc_padding_0_5});
+                min-width: calc(50% - #{$uncalc_padding_0_5});
+                max-width: 50%;
+
+                &:nth-of-type(2n) {
+                    margin-right: 0;
+                }
+            }
+
+            @media only screen and (max-width: $responsive_sm) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-right: 0;
+            }
+
+            &__overlay {
+                position: absolute;
+                background: rgba(black, 0.5);
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+            &__content {
+                z-index: 1;
+                position: inherit;
+                
+                p,
+                a {
+                    color: white;
+                }
+            }
+
+            .time {
+                @extend .p_small;
+                margin-top: $padding_0_5;
+                color: $primary_color;
+                display: flex;
+                align-items: center;
+                color: white;
+
+                i {
+                    font-size: calc(#{$normal_size} + 0.1rem);
+                    margin-right: $padding_0_25;
+                    color: white;
+                    padding: 11px;
+                    display: flex;
+                    border-radius: 100%;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .fa-facebook-f {
+                    background-color: $facebook;
+                }
+
+                .fa-twitter {
+                    background-color: $twitter;
+                }
+
+                .fa-linkedin-in {
+                    background-color: $linkedin;
+                }
+
+                .fa-instagram {
+                    background-color: $instagram;
+                }
+
+                .fa-youtube {
+                    background-color: $youtube;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $responsive_xl) {
+    .social-feed {
+        // twitter
+        &__twitter {
+            // tweet
+            &__tweet {
+                &:not(:last-child) {
+                    padding-bottom: $padding_1;
+                    margin-bottom: $padding_1;
+                }
+            }
+        }
+    }
+}

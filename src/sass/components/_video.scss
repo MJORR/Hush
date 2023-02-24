@@ -1,0 +1,141 @@
+@import "../helpers/layout";
+@import "../base/mixins";
+@import "../base/variables";
+
+.video {
+    @include helpers-layout-fill;
+    overflow: hidden;
+    z-index: 1;
+
+    // video
+    &__object {
+        @include transition((all 0.3s ease-in-out));
+
+        -o-object-fit: cover;
+        object-fit: cover;
+        position: absolute;
+
+        display: flex;
+        justify-content: center;
+
+        margin-left: 50%;
+        transform: translate(-50%);
+
+        width: 101%;
+        height: 100%;
+    }
+
+    /*&:not(.video.option-manual) {
+        .video__object {
+            @media only screen and (max-width: $responsive_sm) {
+                width: unset;
+                height: 100%;
+            }
+        }
+    }*/
+
+    // play
+    &__play {
+        @include transition((all 0.125s ease-in-out));
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        z-index: 10;
+        width: $padding_2;
+        height: $padding_2;
+
+        @media only screen and (max-width: $responsive_lg) {
+            width: $padding_3;
+            height: $padding_3;
+        }
+
+        background-color: white;
+        color: $primary_color;
+
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+
+        transform: translate(-50%, -50%);
+
+        &:before {
+            position: absolute;
+            font-family: $fontawesome;
+
+            color: inherit;
+            content: "\f04b";
+            font-weight: 900;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-45%, -45%);
+
+            font-size: $h4_size;
+        }
+    }
+
+    // playing
+    &--playing {
+        .video {
+            &__play {
+                opacity: 0;
+
+                @media (hover: hover) {
+                    &:before {
+                        content: "\f04c";
+                    }
+                }
+            }
+
+            &__object {
+                filter: brightness(1) !important;
+            }
+        }
+    }
+
+    /* Options
+        ------------------------------------------------------------- */
+    // darken
+    &.option-darken {
+        video {
+            filter: brightness(85%);
+        }
+    }
+
+    // manual
+    &.option-manual {
+        cursor: pointer;
+
+        .video__object {
+            filter: brightness(85%);
+        }
+
+        &:hover {
+            .video {
+                &__play {
+                    opacity: 0.5;
+                }
+
+                &__object {
+                    filter: brightness(1);
+                }
+            }
+        }
+
+        @media (hover: none) {
+            &.video--playing {
+                .video__play {
+                    opacity: 0;
+                }
+            }
+
+            &:not(.video.video--playing) {
+                .video__play {
+                    opacity: 100%;
+                }
+            }
+        }
+    }
+}

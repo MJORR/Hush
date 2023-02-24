@@ -1,0 +1,82 @@
+@import "../base/variables";
+
+.darken {
+    @include helpers-layout-fill;
+    pointer-events: none;
+
+    background: rgba(black, 0.5);
+
+    /* Colours
+    ------------------------------------------------------------- */
+    &.option-white {
+        background: rgba(white, 0.5);
+    }
+
+    &.option-primary {
+        background: $primary_color_50;
+    }
+
+    &.option-secondary {
+        background: $secondary_color_50;
+    }
+
+    &.option-tertiary {
+        background: $tertiary_color_50;
+    }
+
+    &.option-colour1 {
+        background: $color_1_50;
+    }
+
+    &.option-colour2 {
+        background: $color_2_50;
+    }
+
+    &.option-colour3 {
+        background: $color_3_50;
+    }
+
+    &.option-colour4 {
+        background: $color_4_50;
+    }
+
+    &.option-remove {
+        background: rgba(black, 0.5) !important;
+    }
+
+    /* Options
+    ------------------------------------------------------------- */
+    &.option-100 {
+        &.option-white {
+            background: rgba(white, 1);
+        }
+
+        &.option-primary {
+            background: $primary_color;
+        }
+
+        &.option-secondary {
+            background: $secondary_color;
+        }
+
+        &.option-tertiary {
+            background: $tertiary_color;
+        }
+
+        &.option-colour1 {
+            background: $color_1;
+        }
+
+        &.option-colour2 {
+            background: $color_2;
+        }
+
+        &.option-colour3 {
+            background: $color_3;
+        }
+
+        &.option-colour4 {
+            background: $color_4;
+        }
+    }
+}

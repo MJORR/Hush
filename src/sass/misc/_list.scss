@@ -1,0 +1,30 @@
+.main-content,
+.accordion,
+.split {
+    ul {
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-bottom: $padding_1;
+        }
+
+        & > li {
+            &:not(:last-child) {
+                margin-bottom: $padding_0_5;
+            }
+
+            & > ul {
+                margin-left: $padding_1;
+                display: block;
+                width: 100%;
+
+                li {
+                    float: unset;
+                    &:not(:last-child) {
+                        margin-bottom: $padding_0_10;
+                    }
+                }
+            }
+        }
+    }
+}

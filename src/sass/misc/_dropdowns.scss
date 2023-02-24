@@ -1,0 +1,121 @@
+.dropdowns {
+    margin: calc(-1 * #{$padding_0_5});
+    padding-bottom: $padding_2;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    // dropdowns__filter
+    &__filter {
+        margin: $padding_0_5;
+
+        @media only screen and (max-width: $responsive-sm) {
+            width: 100%;
+        }
+
+        display: flex;
+        justify-content: space-between;
+
+        border: 2px solid black;
+        border-radius: $padding_1;
+
+        @include transition(background-color 0.5s ease-out);
+
+        &:hover {
+            background-color: $background_color;
+        }
+    }
+
+    // dropdowns__categories
+    &__categories {
+        a {
+            padding: $padding_0_5;
+            
+        }
+    }
+
+    // form
+    label,
+    select {
+        padding: $padding_0_5;
+
+        @media only screen and (max-width: $responsive-sm) {
+            padding: $padding_0_5 $padding_1;
+        }
+    }
+
+    label {
+        font-weight: bold;
+
+        @media only screen and (max-width: $responsive-sm) {
+            flex: 0 0 40vw;
+        }
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background: none;
+        border: none;
+    }
+
+    .select_dropdown {
+        position: relative;
+        cursor: pointer;
+
+        display: flex;
+
+        @media only screen and (max-width: $responsive-sm) {
+            flex-grow: 1;
+        }
+
+        &:after {
+            position: absolute;
+            right: 0;
+            @media only screen and (max-width: $responsive-sm) {
+                //right: $padding_1;
+            }
+
+            top: 50%;
+            transform: translateY(-50%);
+
+            font-family: $fontawesome;
+            content: "\f078";
+            color: black;
+            font-weight: 900;
+
+            width: $padding_1;
+
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        select {
+            width: 100%;
+            cursor: pointer;
+            padding-right: $padding_1_5;
+        }
+    }
+
+    /* options
+    ------------------------------------------------------------- */
+    // border
+    &.option-border {
+        // square
+        &-square {
+            .dropdowns__filter {
+                border-radius: 0;
+            }
+        }
+
+        // rounded
+        &-rounded {
+            .dropdowns__filter {
+                border-radius: $border_radius;
+            }
+        }
+    }
+}

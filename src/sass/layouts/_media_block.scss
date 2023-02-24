@@ -1,0 +1,220 @@
+@import "../helpers/images";
+@import "../helpers/text";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+@import "../base/typography_variables";
+
+.connected {
+    padding: $padding_3 0;
+
+    &.layout-background-color {
+        @include helpers-text-themecolorText;
+        @include helpers-text-headersInherentColor;
+
+        p,
+        a {
+            color: inherit;
+        }
+    }
+
+    /* outer
+    ---------------------------------------------------------------------------------------------------- */
+    &__outer {
+        display: flex;
+
+        // left
+        &__left {
+            flex: 0 0 66.66%;
+            max-width: 66.66%;
+            padding-right: $padding_3;
+        }
+
+        // right
+        &__right {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+
+        // both
+        &__left,
+        &__right {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    /* news
+    ---------------------------------------------------------------------------------------------------- */
+    &__news {
+        position: relative;
+        height: 100%;
+
+        // slick options
+        .slick-slide {
+            margin: 0 $padding_0_5;
+        }
+        .slick-list {
+            margin: 0 calc(-1 * #{$padding_0_5});
+        }
+
+        .slick-track {
+            a {
+                @include transition((all 0.35s ease-in-out));
+            }
+
+            &:hover > a {
+                opacity: 0.5;
+            }
+
+            & > a:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+
+        .slick-dots {
+            position: absolute;
+            bottom: 0;
+            padding: 0;
+        }
+
+        &__items {
+            height: 100%;
+        }
+
+        // item
+        &__item {
+            height: 100%;
+            position: relative;
+            padding-bottom: $padding_2;
+        }
+
+        // content
+        &__image {
+            width: 100%;
+            margin-bottom: $padding_0_5;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            pointer-events: none;
+
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 75%;
+            }
+        }
+
+        &__date {
+            position: absolute;
+            top: $padding_1;
+            background-color: rgba(white, 0.9);
+            padding: $padding_0_5;
+            padding-right: $padding_1;
+            color: $text_color;
+
+            .time {
+                @extend .p_small;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    /* twitter
+    ---------------------------------------------------------------------------------------------------- */
+    &__twitter {
+        &:hover > .connected__twitter__tweet {
+            opacity: 0.5;
+        }
+
+        & > .connected__twitter__tweet:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        //tweet
+        &__tweet {
+            @include transition((all 0.35s ease-in-out));
+
+            p {
+                word-break: break-word;
+            }
+
+            .time {
+                @extend .p_small;
+                margin-top: $padding_0_5;
+                color: $primary_color;
+                display: flex;
+                align-items: center;
+
+                i {
+                    font-size: calc(#{$normal_size} + 0.1rem);
+                    margin-right: $padding_0_25;
+                }
+            }
+
+            &:not(:last-child) {
+                padding-bottom: $padding_0_5;
+                margin-bottom: $padding_0_5;
+                border-bottom: $border_size solid $border_color;
+            }
+        }
+    }
+
+    /* content
+    ---------------------------------------------------------------------------------------------------- */
+    &__title {
+        display: flex;
+    }
+
+    &__link {
+        margin-left: auto;
+    }
+
+    &__link__bottom {
+        margin-right: auto;
+    }
+
+    h5 {
+        margin-bottom: $padding_0_5;
+    }
+
+    p {
+        margin-bottom: 0;
+        color: $text_color;
+    }
+}
+
+@media only screen and (max-width: $responsive_sm) {
+    .connected {
+        // outer
+        &__outer {
+            flex-direction: column;
+
+            // left
+            &__left {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0;
+                margin-bottom: $padding_3;
+            }
+
+            &__right {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        // twitter
+        &__twitter {
+            // tweet
+            &__tweet {
+                &:not(:last-child) {
+                    padding-bottom: $padding_1;
+                    margin-bottom: $padding_1;
+                }
+            }
+        }
+    }
+}

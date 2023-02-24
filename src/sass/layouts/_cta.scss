@@ -1,0 +1,217 @@
+@import "../helpers/text";
+@import "../helpers/images";
+@import "../helpers/padding";
+@import "../base/container";
+@import "../base/variables";
+@import "../base/mixins";
+
+.cta {
+    position: relative;
+    overflow: hidden;
+
+    /* Options
+    ------------------------------------------------------------------------------ */
+    // Background Type
+    &.option-background_type {
+        &-color {
+            padding: $padding_2 0;
+            @include helpers-text-headersInherentColor;
+        }
+
+        &-image {
+            @include helpers-images-background;
+            color: white !important;
+
+            @include helpers-text-headersInherentColor;
+            @include helpers-padding-frame;
+        }
+    }
+
+    // Extended
+    &.option-extended {
+        .cta {
+            &__left {
+                flex: 0 0 100%;
+            }
+
+            &__right {
+                display: none;
+            }
+
+            &__title {
+                margin-bottom: $padding_2;
+            }
+        }
+    }
+
+    // Opacity Type
+    &.option-bgopacity_type {
+        &-full {
+            .darken {
+                z-index: 1;
+                opacity: calc(1% * #{$opacity_low});
+            }
+
+            .opacity {
+                display: none;
+            }
+        }
+
+        &-text {
+            .opacity {
+                z-index: 1;
+                opacity: calc(1% * #{$opacity_low});
+            }
+        }
+    }
+
+    // link
+    &.option-titlearrow,
+    &__extended__section.link {
+        @include helpers-text-headersInherentColor;
+
+        a {
+            color: inherit;
+        }
+
+        h2,
+        h3 {
+            padding-right: $padding_2;
+            position: relative;
+            display: inline-block;
+            margin-bottom: $padding_0_5;
+
+            &:after {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+
+                font-family: $fontawesome;
+                content: "\f054";
+                padding-left: $padding_0_5;
+                font-weight: normal;
+                margin-left: auto;
+                font-size: $h3_size;
+
+                @include transition(right 0.5s ease);
+            }
+
+            &:hover {
+                &:after {
+                    right: $padding_0_5;
+                }
+            }
+        }
+    }
+
+    &__outer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+        @extend .container;
+
+        .darken {
+            z-index: 1;
+        }
+    }
+
+    &__left {
+        flex: 0 0 70%;
+    }
+
+    &__right {
+        flex: 0 0 30%;
+        padding-left: $padding_1;
+
+        &:first-of-type {
+            flex: 0 0 70%;
+            padding: 0px;
+        }
+
+        text-align: right;
+
+        @media only screen and (max-width: $responsive-md) {
+            text-align: left;
+        }
+
+        /*a {
+            width: 100%;
+            text-align: center;
+        }*/
+
+        @media only screen and (max-width: $responsive-md) {
+            margin-top: $padding_2;
+        }
+    }
+
+    &__left,
+    &__right {
+        position: relative;
+        z-index: 1;
+
+        @media only screen and (max-width: $responsive-md) {
+            flex: 0 0 100%;
+            padding-left: 0px;
+        }
+    }
+
+    &__icon {
+        font-size: $h2_size;
+        margin-bottom: $padding_0_5;
+    }
+
+    &__buttons {
+        margin: calc(-1 * #{$padding_0_25});
+
+        .button {
+            margin: $padding_0_25;
+        }
+    }
+
+    &__extended {
+        display: flex;
+        justify-content: space-evenly;
+
+        @media only screen and (max-width: $responsive-md) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &__section {
+            padding: 0px $padding_1;
+            @include helpers-text-headersInherentColor;
+
+            &:first-of-type {
+                padding: 0px $padding_1 0 0;
+            }
+
+            &:not(:last-of-type) {
+                border-right: $border_size solid;
+            }
+
+            // columns
+            &--2 {
+                flex: 0 0 50%;
+            }
+
+            &--3 {
+                flex: 0 0 33.33%;
+            }
+
+            // mobile
+            @media only screen and (max-width: $responsive-md) {
+                padding: 0px 0 $padding_1 0 !important;
+
+                flex: 0 0 100%;
+                margin-top: $padding_1;
+
+                &:not(:last-of-type) {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}

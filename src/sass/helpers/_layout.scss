@@ -1,0 +1,271 @@
+@mixin helpers-layout-flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin helpers-layout-virtualCenter {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 100%;
+}
+
+@mixin helpers-layout-center {
+    @include helpers-layout-flex;
+
+    & > div {
+        @include helpers-layout-virtualCenter;
+    }
+}
+
+@mixin helpers-layout-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin helpers-layout-framePadding {
+    padding: $padding_3 0;
+}
+
+@mixin helpers-layout-themecolorBackground {
+    &.option-primary {
+        background-color: $primary_color;
+    }
+
+    &.option-secondary {
+        background-color: $secondary_color;
+    }
+
+    &.option-tertiary {
+        background-color: $tertiary_color;
+    }
+
+    &.option-colour1 {
+        background-color: $color_1;
+    }
+
+    &.option-colour2 {
+        background-color: $color_2;
+    }
+
+    &.option-colour3 {
+        background-color: $color_3;
+    }
+
+    &.option-colour4 {
+        background-color: $color_4;
+    }
+}
+
+@mixin helpers-layout-themecolorText {
+    &.option-primary {
+        background-color: $primary_color_text;
+    }
+
+    &.option-secondary {
+        background-color: $secondary_color_text;
+    }
+
+    &.option-tertiary {
+        background-color: $tertiary_color_text;
+    }
+
+    &.option-colour1 {
+        background-color: $color_1_text;
+    }
+
+    &.option-colour2 {
+        background-color: $color_2_text;
+    }
+
+    &.option-colour3 {
+        background-color: $color_3_text;
+    }
+
+    &.option-colour4 {
+        background-color: $color_4_text;
+    }
+}
+
+@mixin helpers-layout-themecolorBackgroundOpacity {
+    &.option-primary {
+        background-color: $primary_color_opacity;
+    }
+
+    &.option-secondary {
+        background-color: $secondary_color_opacity;
+    }
+
+    &.option-tertiary {
+        background-color: $tertiary_color_opacity;
+    }
+
+    &.option-colour1 {
+        background-color: $color_1_opacity;
+    }
+
+    &.option-colour2 {
+        background-color: $color_2_opacity;
+    }
+
+    &.option-colour3 {
+        background-color: $color_3_opacity;
+    }
+
+    &.option-colour4 {
+        background-color: $color_4_opacity;
+    }
+}
+
+@mixin helpers-layout-themecolorBackgroundOpacity50 {
+    &.option-primary {
+        background-color: $primary_color_50;
+    }
+
+    &.option-secondary {
+        background-color: $secondary_color_50;
+    }
+
+    &.option-tertiary {
+        background-color: $tertiary_color_50;
+    }
+
+    &.option-colour1 {
+        background-color: $color_1_50;
+    }
+
+    &.option-colour2 {
+        background-color: $color_2_50;
+    }
+
+    &.option-colour3 {
+        background-color: $color_3_50;
+    }
+
+    &.option-colour4 {
+        background-color: $color_4_50;
+    }
+}
+
+@mixin helpers-layout-themecolorBorder {
+    &.option-primary {
+        border: $border_size solid $primary_color;
+    }
+
+    &.option-secondary {
+        border: $border_size solid $secondary_color;
+    }
+
+    &.option-tertiary {
+        border: $border_size solid $tertiary_color;
+    }
+
+    &.option-colour1 {
+        border: $border_size solid $color_1;
+    }
+
+    &.option-colour2 {
+        border: $border_size solid $color_2;
+    }
+
+    &.option-colour3 {
+        border: $border_size solid $color_3;
+    }
+
+    &.option-colour4 {
+        border: $border_size solid $color_4;
+    }
+}
+
+// Slick Dots
+@mixin helpers-layout-slickTextColorSet($color, $type: dots) {
+    .slick-prev,
+    .slick-next {
+        color: inherit;
+    }
+
+    @if $type == dots {
+        .slick-dots {
+            button {
+                border-color: $color;
+            }
+
+            & li.slick-active button {
+                background-color: $color;
+            }
+        }
+    } @else {
+        .slick-dots {
+            button {
+                color: $color;
+            }
+
+            & li.slick-active button {
+                border-bottom: 2px solid $color;
+            }
+        }
+    }
+}
+@mixin helpers-layout-slickColorDots {
+    &.option-primary {
+        @include helpers-layout-slickTextColorSet($primary_color_text);
+    }
+
+    &.option-secondary {
+        @include helpers-layout-slickTextColorSet($secondary_color_text);
+    }
+
+    &.option-tertiary {
+        @include helpers-layout-slickTextColorSet($tertiary_color_text);
+    }
+
+    &.option-colour1 {
+        @include helpers-layout-slickTextColorSet($color_1_text);
+    }
+
+    &.option-colour2 {
+        @include helpers-layout-slickTextColorSet($color_2_text);
+    }
+
+    &.option-colour3 {
+        @include helpers-layout-slickTextColorSet($color_3_text);
+    }
+
+    &.option-colour4 {
+        @include helpers-layout-slickTextColorSet($color_4_text);
+    }
+}
+
+// Slick Pages
+@mixin helpers-layout-slickColorPages {
+    &.option-primary {
+        @include helpers-layout-slickTextColorSet($primary_color_text, pages);
+    }
+
+    &.option-secondary {
+        @include helpers-layout-slickTextColorSet($secondary_color_text, pages);
+    }
+
+    &.option-tertiary {
+        @include helpers-layout-slickTextColorSet($tertiary_color_text, pages);
+    }
+
+    &.option-colour1 {
+        @include helpers-layout-slickTextColorSet($color_1_text, pages);
+    }
+
+    &.option-colour2 {
+        @include helpers-layout-slickTextColorSet($color_2_text, pages);
+    }
+
+    &.option-colour3 {
+        @include helpers-layout-slickTextColorSet($color_3_text, pages);
+    }
+
+    &.option-colour4 {
+        @include helpers-layout-slickTextColorSet($color_4_text, pages);
+    }
+}

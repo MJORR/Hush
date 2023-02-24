@@ -1,0 +1,70 @@
+.background {
+    @include helpers-layout-fill;
+    @include helpers-images-background;
+
+    overflow: hidden;
+
+    /* background__mobile
+    ---------------------------------------------------------------------------------------------------- */
+    &__mobile {
+        @include helpers-layout-fill;
+        @include helpers-images-background;
+
+        display: none;
+
+        @media only screen and (max-width: $responsive_sm) {
+            display: block;
+        }
+    }
+
+    /* options
+    ---------------------------------------------------------------------------------------------------- */
+    &.option-mobileonly {
+        .background__mobile {
+            display: block;
+        }
+    }
+
+    /* background__overlay
+    ---------------------------------------------------------------------------------------------------- */
+    &__overlay {
+        @include helpers-layout-fill;
+        opacity: 50%;
+
+        &.option-black {
+            background-color: rgba(black, 0.5);
+        }
+
+        &.option-white {
+            background-color: rgba(white, 0.5);
+        }
+
+        &.option-primary {
+            background-color: $primary_color;
+        }
+
+        &.option-secondary {
+            background-color: $secondary_color;
+        }
+
+        &.option-tertiary {
+            background-color: $tertiary_color;
+        }
+
+        &.option-colour1 {
+            background-color: $color_1;
+        }
+
+        &.option-colour2 {
+            background-color: $color_2;
+        }
+
+        &.option-colour3 {
+            background-color: $color_3;
+        }
+
+        &.option-colour4 {
+            background-color: $color_4;
+        }
+    }
+}

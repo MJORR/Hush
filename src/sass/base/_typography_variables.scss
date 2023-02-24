@@ -1,0 +1,11 @@
+@import "./variables";
+
+.p_small {
+  font-size: $small_size;
+  line-height: calc(#{$small_size} + (#{$small_size} / 2));
+}
+
+.p_large {
+  font-size: $large_size;
+  line-height: calc(#{$large_size} + (#{$large_size} / 2));
+}

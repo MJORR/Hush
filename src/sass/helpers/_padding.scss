@@ -1,0 +1,5 @@
+@import "../base/variables";
+
+@mixin helpers-padding-frame {
+    padding: $padding_3 0;
+}
